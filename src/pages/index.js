@@ -11,13 +11,13 @@ export default ({data}) => {
     {data.allContentfulVideo.edges.map(({ node }, index) => (
       <div key="index">
         <p><b>Title:</b> {node.title}</p>
-        <p><b>Contentful ID:</b> {node.contentfulid}</p>
+        <p><b>Contentful ID:</b> {node.youTubeId}</p>
         <p><b>Slug:</b> {node.slug}</p>
         <p><b>Description:</b><br /> {node.description.description}</p>
         <iframe
           width="560"
           height="315"
-          src={`https://www.youtube.com/embed/${node.contentfulid}?rel=0&amp;showinfo=0`}
+          src={`https://www.youtube.com/embed/${node.youTubeId}?rel=0&amp;showinfo=0`}
           frameBorder="0"
           allow="autoplay; encrypted-media"
           allowFullScreen
@@ -33,7 +33,7 @@ export const query = graphql`
     allContentfulVideo {
       edges {
         node {
-          contentfulid
+          youTubeId
           title
           slug
           description {
