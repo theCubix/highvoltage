@@ -6,6 +6,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `7dnxtb8wlc24`,
+        accessToken: `c24c6375302b1e6599660a82804be0536dd936c577512a2f6b80331515f54f96`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: 'gatsby-starter-default',
