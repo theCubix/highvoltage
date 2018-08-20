@@ -28,6 +28,7 @@ const Layout = ({ children, data }) => (
           ]}
         >
           <html lang="de" />
+          <link href="https://fonts.googleapis.com/css?family=Oswald:700|Source+Sans+Pro:400,700" rel="stylesheet" async/>
         </Helmet>
 
         <Header siteTitle={data.site.siteMetadata.title} />
