@@ -3,8 +3,12 @@ module.exports = {
     title: 'High Voltage Theme',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: "src/"
+      }
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -12,6 +16,10 @@ module.exports = {
         accessToken: `c24c6375302b1e6599660a82804be0536dd936c577512a2f6b80331515f54f96`,
       },
     },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sass',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
