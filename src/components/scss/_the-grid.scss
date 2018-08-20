@@ -1,0 +1,17 @@
+.grid {
+  display: grid;
+  grid-gap: 20px;
+
+  &--two-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--four-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.vertically-centered {
+  align-items: center;
+  display: grid;
+}

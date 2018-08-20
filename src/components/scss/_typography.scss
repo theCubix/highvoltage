@@ -1,0 +1,93 @@
+.heading {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+
+  &--level-1 {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 0;
+    margin-bottom: 5rem;
+  }
+
+  &--level-2 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 1.875rem;
+  }
+
+  &--margin-top-regular {
+    margin-top: 4.375rem;
+  }
+
+  &--margin-top-large {
+    margin-top: 7.5rem;
+  }
+
+  &--heading-z1 {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__letter {
+    color: rgba($red-light, 0.15);
+    display: inline-block;
+    font-size: 18.75rem;
+    line-height: 18.75rem;
+    margin-top: -8.375rem;
+    margin-left: -4.5rem;
+    position: absolute;
+    top: 0;
+    user-select: none;
+    z-index: 0;
+  }
+}
+
+@supports (hyphens: auto) {
+  .text {
+    &--justified {
+      hyphens: auto;
+      text-align: justify;
+    }
+  }
+}
+
+.text {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.618rem;
+  text-rendering: optimizeLegibility;
+  color: rgba(255, 255, 255, 0.8);
+
+  &--line-height-narrow {
+    line-height: 1.4rem;
+  }
+
+  &--line-height-narrower {
+    line-height: 1.2rem;
+  }
+
+  &--secondary {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  &--primary {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+b {
+  font-weight: 700;
+}
+
+a.link {
+  font-family: 'Source Sans Pro', sans-serif;
+  text-decoration: none;
+}

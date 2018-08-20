@@ -2,8 +2,12 @@
 @import "scss/variables";
 @import "scss/global";
 @import "scss/typography";
+@import "scss/the-grid";
 
 //Components
 @import "scss/button-link";
 @import "scss/hero-image";
 @import "scss/video";
+
+//pages
+@import "scss/home";
