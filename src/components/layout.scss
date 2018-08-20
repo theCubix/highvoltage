@@ -1,2 +1,9 @@
-@import "scss/hero-image";
+//General styling
+@import "scss/variables";
+@import "scss/global";
+@import "scss/typography";
 
+//Components
+@import "scss/button-link";
+@import "scss/hero-image";
+@import "scss/video";

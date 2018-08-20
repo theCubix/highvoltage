@@ -1,0 +1,79 @@
+.video {
+  width: 400px;
+  margin-bottom: 3em;
+}
+
+.video-thumbnail {
+  background-position: center center;
+  background-size: cover;
+  border-radius: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+  transition: transform 300ms ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &__wrapper {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: absolute;
+  }
+
+  &__icon {
+    max-height: 50%;
+    transition: transform 300ms ease;
+    width: 56px;
+  }
+
+  &:hover>&__wrapper>&__icon {
+    transform: scale(0.9);
+  }
+}
+
+.video-modal {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  align-items: center;
+  background-color: rgba($dark-primary, 0.9);
+  display: flex;
+  position: fixed;
+  z-index: 999;
+
+  &--shown {
+    display: block;
+  }
+
+  &--hidden {
+    display: none;
+  }
+
+  &--fade {
+    &-enter {
+      opacity: 0.01;
+    }
+    &-enter-active {
+      opacity: 1;
+      transition: opacity 300ms ease-in;
+    }
+    &-leave {
+      opacity: 1;
+    }
+    &-leave-active {
+      opacity: 0.01;
+      transition: opacity 300ms ease-in;
+    }
+  }
+}
