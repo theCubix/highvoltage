@@ -1,5 +1,6 @@
 //General styling
 @import "scss/variables";
+@import "scss/media-queries";
 @import "scss/global";
 @import "scss/typography";
 @import "scss/the-grid";
@@ -8,6 +9,7 @@
 @import "scss/button-link";
 @import "scss/hero-image";
 @import "scss/video";
+@import "scss/avatar";
 
 //pages
 @import "scss/home";
