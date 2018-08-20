@@ -76,12 +76,19 @@ const MusicIsOurLife = ({ siteTitle }) => (
     `}
     render={data => 
     <div className="container">
+
         <Heading title="Voltage Arc – Music Is Our Life" letter="V" />
+
         <div className="z-1">
 
           <div className="grid grid--two-columns margin-bottom--default">
             
-            <div className="dummy-video"></div>
+            <div
+              style={{
+                backgroundImage: 'url(https://source.unsplash.com/random/500x500)',
+                backgroundSize: 'cover'
+              }}
+              className="dummy-video"></div>
             
             <div className="vertically-centered">
               <div>
@@ -101,7 +108,12 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
           </div>
 
-          <div className="another-dummy-video margin-bottom--default">
+          <div
+            style={{
+              backgroundImage: 'url(https://source.unsplash.com/random/640x360)',
+              backgroundSize: 'cover'
+            }}
+            className="another-dummy-video margin-bottom--default">
 
           </div>
         </div>
