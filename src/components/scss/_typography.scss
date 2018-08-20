@@ -11,8 +11,11 @@
     margin-bottom: 5rem;
 
     @include phone {
-      font-size: 1.5em;
+      font-size: 1.75em;
+      line-height: 1.25em;
+      letter-spacing: 0;
       margin-bottom: 2.5em;
+      text-transform: none;
     }
   }
 
@@ -21,6 +24,14 @@
     line-height: 1.5rem;
     margin-top: 0;
     margin-bottom: 1.875rem;
+
+    @include phone {
+      font-size: 1.25em;
+      line-height: 1.25em;
+      letter-spacing: 0;
+      margin-bottom: 1.275em;
+      text-transform: none;
+    }
   }
 
   &--margin-top-regular {
@@ -67,6 +78,11 @@
     &--justified {
       hyphens: auto;
       text-align: justify;
+
+      @include phone {
+        hyphens: none;
+        text-align: left;
+      }
     }
   }
 }
