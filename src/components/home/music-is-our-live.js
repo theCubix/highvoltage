@@ -1,9 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import Img from 'gatsby-image'
-
 import Heading from '../heading'
+import Avatar from '../avatar'
 
 const MusicIsOurLife = ({ siteTitle }) => (
   <StaticQuery
@@ -80,7 +79,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
         <Heading title="Voltage Arc – Music Is Our Life" letter="V" />
         <div className="z-1">
 
-          <div className="grid grid--two-columns">
+          <div className="grid grid--two-columns margin-bottom--default">
             
             <div className="dummy-video"></div>
             
@@ -93,23 +92,16 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
           </div>
 
-          <div className="grid grid--four-columns">
+          <div className="grid grid--four-columns margin-bottom--default">
 
-            <div className="avatar">
-              <Img fluid={data.julian.childImageSharp.fluid} />
-            </div>
+            <Avatar img={data.julian.childImageSharp.fluid} name="Julian" duty="Bass" />
+            <Avatar img={data.merlin.childImageSharp.fluid} name="Merlin" duty="Gitarre" />
+            <Avatar img={data.toni.childImageSharp.fluid} name="Toni" duty="Gesang" />
+            <Avatar img={data.timon.childImageSharp.fluid} name="Timon" duty="Schlagzeug" />
 
-            <div className="avatar">
-              <Img fluid={data.toni.childImageSharp.fluid} />
-            </div>
+          </div>
 
-            <div className="avatar">
-              <Img fluid={data.merlin.childImageSharp.fluid} />
-            </div>
-
-            <div className="avatar">
-              <Img fluid={data.timon.childImageSharp.fluid} />
-            </div>
+          <div className="another-dummy-video margin-bottom--default">
 
           </div>
         </div>
