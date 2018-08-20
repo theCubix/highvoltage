@@ -1,47 +1,15 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+//import { graphql } from 'gatsby'
+
+import HeroImage from '../components/hero-main'
 
 import Layout from '../components/layout'
 
 export default ({data}) => {
   console.log(data)
   return (
-  <Layout>
-    <h1>Videos</h1>
-    {data.allContentfulVideo.edges.map(({ node }, index) => (
-      <div key="index">
-        <p><b>Title:</b> {node.title}</p>
-        <p><b>Contentful ID:</b> {node.youTubeId}</p>
-        <p><b>Slug:</b> {node.slug}</p>
-        <p><b>Description:</b><br /> {node.description.description}</p>
-        <iframe
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${node.youTubeId}?rel=0&amp;showinfo=0`}
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          allowFullScreen
-          title={index}></iframe>
-      </div>
-    ))}
-  </Layout>
+    <Layout>
+      <HeroImage />
+    </Layout>
   )
 }
-
-export const query = graphql`
-  query {
-    allContentfulVideo {
-      edges {
-        node {
-          youTubeId
-          title
-          slug
-          description {
-            description
-          }
-        }
-      }
-    }
-  }
-  `
-
