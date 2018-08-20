@@ -29,6 +29,7 @@ const HeroImage = ({data}) => (
           paddingTop: "41.125%"
         }}
         resolutions={data.MainImage.childImageSharp.resolutions}
+        alt="Voltage Arc live auf der Bühne der Rockarena in Schaffhausen"
       />
     )}
     />
