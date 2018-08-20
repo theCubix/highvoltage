@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from './header'
+
 import './layout.scss'
 
 const Layout = ({ children, data }) => (
@@ -28,10 +29,13 @@ const Layout = ({ children, data }) => (
         >
           <html lang="de" />
         </Helmet>
+
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div>
+
+        <div className="dark-background padding-top-header">
           {children}
         </div>
+
       </>
     )}
   />
