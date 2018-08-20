@@ -16,6 +16,10 @@ body {
   margin: 0 auto;
   max-width: 780px;
   position: relative;
+
+  @include phone {
+    margin: 0 16px;
+  }
 }
 
 .z-1 {
@@ -27,14 +31,12 @@ body {
   padding-top: 50px;
 }
 
-.margin-top-lg {
-  margin-top: 5em;
-}
+.margin-bottom {
+  &--default {
+    margin-bottom: 120px;
 
-.margin-top-md {
-  margin-top: 2em;
-}
-
-.margin-bottom-md {
-  margin-bottom: 2em;
+    @include phone {
+      margin-bottom: 60px;
+    }
+  }
 }
