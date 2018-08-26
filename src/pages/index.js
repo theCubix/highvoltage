@@ -35,7 +35,7 @@ export default Index
 
 export const pageQuery = graphql`
   query {
-    allContentfulVideo {
+    allContentfulVideo(sort: {fields: createdAt}) {
       edges {
         node {
           id
