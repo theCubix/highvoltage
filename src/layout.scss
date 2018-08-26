@@ -10,6 +10,11 @@
 @import "scss/hero-image";
 @import "scss/video";
 @import "scss/avatar";
+@import "scss/video-thumb";
 
 //pages
 @import "scss/home";
+
+//react slick
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";

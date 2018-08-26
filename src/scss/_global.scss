@@ -9,7 +9,7 @@ body {
   background-color: $dark-primary;
   min-height: 100vh;
   min-width: 100%;
-  position: absolute;
+  //position: absolute;
 }
 
 .container {
@@ -19,6 +19,12 @@ body {
 
   @include phone {
     margin: 0 16px;
+  }
+
+  &--video {
+    @include phone {
+      margin: 0 42px;
+    }
   }
 }
 
