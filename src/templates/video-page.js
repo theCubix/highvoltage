@@ -12,11 +12,10 @@ class VideoTemplate extends React.Component {
   }
   render() {
     let isModal = false
-    
-    if (
-      window.___HIGHVOLTAGE_INITIAL_RENDER_COMPLETE
-    ) {
-      isModal = true
+    if (typeof window !== `undefined`) {
+      if (window.___HIGHVOLTAGE_INITIAL_RENDER_COMPLETE) {
+        isModal = true
+      }
     }
 
     return(
