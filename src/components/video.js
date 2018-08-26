@@ -14,14 +14,6 @@ class Video extends React.Component {
     }).isRequired
   }
   render() {
-
-    const video = {
-      width: '100%',
-      paddingTop: '56.25%',
-      backgroundColor: 'red',
-      boxSizing: 'border-box'
-    }
-
     const { slug, thumbnail } = this.props.video
     return(
       <Link className="video-thumb" to={`/video/${slug}/`}>
