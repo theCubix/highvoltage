@@ -7,7 +7,7 @@ import Layout from '../layouts/video'
 class VideoTemplate extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
-      ContentfulVideo: PropTypes.object.isRequired,
+      contentfulVideo: PropTypes.object.isRequired,
     }),
   }
   render() {
@@ -20,8 +20,8 @@ class VideoTemplate extends React.Component {
     }
 
     return(
-      <Layout isModal={isModal}>
-        <VideoDetail video={this.props.data.ContentfulVideo} />
+      <Layout isModal={isModal} location={this.props.location}>
+        <VideoDetail video={this.props.data.contentfulVideo} />
       </Layout>
     )
   }
