@@ -10,18 +10,25 @@ class Videos extends React.Component {
 
     //configuration for the slider
     let settings = {
+      arrows: true,
+      autoplay: true,
+      centerMode: false,
       dots: true,
-      infinite: false,
+      infinite: true,
+      mobilefirst: true,
       slidesToShow: 2,
       slidesToScroll: 1,
       speed: 500,
+      variableWidth: false,
       responsive: [
         {
           breakpoint: 450,
           settings: {
             arrows: false,
             centerMode: true,
+            centerPadding: '60px',
             slidesToShow: 1,
+            slidesToScroll: 1,
           }
         }
       ]
