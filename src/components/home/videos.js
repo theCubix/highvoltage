@@ -19,13 +19,16 @@ class Videos extends React.Component {
         {
           breakpoint: 450,
           settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
             slidesToShow: 1
           }
         }
       ]
     }
     return(
-      <div className="container container--video" style={{ paddingBottom: '32px' }}>
+      <div className="container container--video">
         <Slider {...settings}> 
           {videos.map((video) => (
             <Video
