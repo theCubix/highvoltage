@@ -4,13 +4,10 @@ import { PageRenderer } from 'gatsby'
 
 class VideoLayout extends React.Component {
   static propTypes = {
-    location: PropTypes.object.isRequired,
     isModal: PropTypes.bool,
   }
 
   render() {
-
-    const { location } = this.props
 
     const modal = {
       position: 'fixed',
