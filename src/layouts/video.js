@@ -1,15 +1,16 @@
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import { PageRenderer} from 'gatsby'
-
-//let modal?
+import { PageRenderer } from 'gatsby'
 
 class VideoLayout extends React.Component {
-  static PropTypes = {
+  static propTypes = {
+    location: PropTypes.object.isRequired,
     isModal: PropTypes.bool,
   }
 
   render() {
+
+    const { location } = this.props
 
     const modal = {
       position: 'fixed',
@@ -20,7 +21,7 @@ class VideoLayout extends React.Component {
       alignItems: 'center',
       justifyContent: 'center'
     }
-    
+
     let isModal = false
     if (this.props.isModal) {
       isModal = true
@@ -31,21 +32,20 @@ class VideoLayout extends React.Component {
         <React.Fragment>
           <PageRenderer location={{ pathname: `/` }} />
           <div style={modal}>
-            <div>
-              <h1>Dies ist ein Modal</h1>
-              {this.props.children}
-            </div>
+
+            {this.props.children}
+
           </div>
+        
         </React.Fragment>
       )
-    } else {
-      return (
-        <div>
-          <h1>Dies ist kein Modal</h1>
-          {this.props.children}
-        </div>
-      )
     }
+    return (
+      <div>
+        <h1>That's not a modal</h1>
+        {this.props.children}
+      </div>
+    )
   }
 }
 
