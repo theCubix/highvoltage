@@ -1,6 +1,6 @@
 import * as PropTypes from 'prop-types'
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 
 class Video extends React.Component {
   static propTypes = {
@@ -10,6 +10,7 @@ class Video extends React.Component {
     }).isRequired
   }
   render() {
+    const { slug, title } = this.props.video
     return(
       <Link to={`/video/${slug}/`}>{title}</Link>
     )
