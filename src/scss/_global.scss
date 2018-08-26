@@ -23,7 +23,8 @@ body {
 
   &--video {
     @include phone {
-      margin: 0 42px;
+      margin: 0;
+      padding-bottom: 32px;
     }
   }
 }
