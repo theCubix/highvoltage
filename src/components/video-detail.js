@@ -15,7 +15,7 @@ class VideoDetail extends React.Component {
         <p><b>id:&nbsp;</b>{id}</p>
         <p><b>title:&nbsp;</b>{title}</p>
         <p><b>youTubeId:&nbsp;</b>{youTubeId}</p>
-        <p><b>description:&nbsp;</b>{description}</p>
+        <p><b>description:&nbsp;</b>{description.description}</p>
       </div>
     )
   }
