@@ -1,3 +1,7 @@
+//react slick
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 //General styling
 @import "scss/variables";
 @import "scss/media-queries";
@@ -14,7 +18,3 @@
 
 //pages
 @import "scss/home";
-
-//react slick
-@import "~slick-carousel/slick/slick.css";
-@import "~slick-carousel/slick/slick-theme.css";
