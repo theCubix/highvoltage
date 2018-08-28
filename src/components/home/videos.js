@@ -18,7 +18,7 @@ class Videos extends React.Component {
       infinite: true,
       slidesToShow: 2,
       slidesToScroll: 1,
-      speed: 500,
+      speed: 800,
       responsive: [
         {
           breakpoint: 768,
@@ -32,15 +32,14 @@ class Videos extends React.Component {
     }
     return(
       <>
-        <div>
         <Heading title="Videos" letter="V" className="container" />
-        </div>
         <div className="container container--slider">
           <Slider {...settings}> 
             {videos.map((video) => (
               <Video
                 key={video.id}
                 video={video}
+                paddingTop={56.25}
               />
             ))}
           </Slider>
