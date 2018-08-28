@@ -2,7 +2,7 @@ import * as PropTypes from 'prop-types'
 import React from 'react'
 import { graphql } from 'gatsby'
 import VideoDetail from '../components/video-detail'
-import Layout from '../layouts/video'
+import Layout from '../layouts/main'
 
 class VideoTemplate extends React.Component {
   static propTypes = {
@@ -11,15 +11,8 @@ class VideoTemplate extends React.Component {
     }),
   }
   render() {
-    let isModal = false
-    if (typeof window !== `undefined`) {
-      if (window.___HIGHVOLTAGE_INITIAL_RENDER_COMPLETE) {
-        isModal = true
-      }
-    }
-
     return(
-      <Layout isModal={isModal} location={this.props.location}>
+      <Layout>
         <VideoDetail video={this.props.data.contentfulVideo} />
       </Layout>
     )
