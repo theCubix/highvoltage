@@ -21,9 +21,15 @@ body {
     margin: 0 16px;
   }
 
-  &--video {
+  &--slider {
     padding-bottom: 32px;
+    
+    @include phone {
+      margin: 0;
+    }
+  }
 
+  &--video {
     @include phone {
       margin: 0;
     }
@@ -39,12 +45,21 @@ body {
   padding-top: 50px;
 }
 
+.margin-sides {
+  @include phone {
+    &--mobile {
+      margin-right: 16px;
+      margin-left: 16px;
+    }
+  }
+}
+
 .margin-bottom {
   &--default {
-    margin-bottom: 120px;
+    margin-bottom: 140px;
 
     @include phone {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
   }
 }

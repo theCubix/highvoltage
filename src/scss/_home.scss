@@ -1,13 +1,17 @@
 .dummy-video {
   width: 100%;
-  padding-top: 100%;
   border-radius: 3px;
-  background-color: white;
-}
+  background-size: cover;
 
-.another-dummy-video {
-  width: 100%;
-  padding-top: 56.25%;
-  border-radius: 3px;
-  background-color: white;
+  @include phone {
+    border-radius: 0;
+  }
+
+  &--1x1 {
+    padding-top: 100%;
+  }
+
+  &--16x9 {
+    padding-top: 56.25%;
+  }
 }

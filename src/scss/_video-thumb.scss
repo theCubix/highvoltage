@@ -4,6 +4,11 @@
   border-radius: 3px;
   margin: 0 8px;
 
+  @include phone {
+    margin: 0px;
+    border-radius: 0;
+  }
+
   &__wrapper {
     background-color: $red-primary;
     padding-top: 56.25%;
