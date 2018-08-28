@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import Img from 'gatsby-image'
+import { ReactComponent as PlayOutline } from '../icons/play-outline.svg'
 
 class Video extends React.Component {
 
@@ -11,17 +12,28 @@ class Video extends React.Component {
       slug: PropTypes.string,
       title: PropTypes.string,
       thumbnail: PropTypes.object
-    }).isRequired
+    }).isRequired,
+    paddingTop: PropTypes.number
   }
   render() {
     const { slug, thumbnail } = this.props.video
+    const paddingTop = this.props.paddingTop
     return(
-      <Link className="video-thumb" to={`/video/${slug}/`}>
-        <div className="video-thumb__wrapper" >
+      <Link className="video-thumbnail" to={`/video/${slug}/`}>
+        <div className="video-thumbnail__icon-wrapper">
+          <PlayOutline
+            fill="#ffffff"
+            className="video-thumbnail__icon"/>
+        </div>
+        <div
+          className="video-thumbnail__wrapper"
+          style={{
+            paddingTop: paddingTop + '%'
+          }}>
           <Img
             fixed={thumbnail.fixed}
-            outerWrapperClassName="video-thumb__image-wrapper"
-            className="video-thumb__image"
+            outerWrapperClassName="video-thumbnail__image-wrapper"
+            className="video-thumbnail__image"
             />
         </div>
       </Link>
