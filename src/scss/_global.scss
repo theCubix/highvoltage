@@ -8,8 +8,8 @@ body {
 .dark-background {
   background-color: $dark-primary;
   min-height: 100vh;
-  min-width: 100%;
-  //position: absolute;
+  width: 100%;
+  position: absolute;
 }
 
 .container {
@@ -61,5 +61,9 @@ body {
     @include phone {
       margin-bottom: 40px;
     }
+  }
+
+  &--narrow {
+    margin-bottom: 40px;
   }
 }
