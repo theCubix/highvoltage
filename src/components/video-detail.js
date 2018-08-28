@@ -4,18 +4,34 @@ import { graphql } from 'gatsby'
 class VideoDetail extends React.Component {
   render() {
     const {
-      id,
       title,
       youTubeId,
       description
     } = this.props.video
 
+    const url = `https://www.youtube.com/embed/${youTubeId}?showinfo=0`
+
     return(
       <div>
-        <p><b>id:&nbsp;</b>{id}</p>
-        <p><b>title:&nbsp;</b>{title}</p>
-        <p><b>youTubeId:&nbsp;</b>{youTubeId}</p>
-        <p><b>description:&nbsp;</b>{description.description}</p>
+        <h2 className="heading heading--level-2 container">{title}</h2>
+        <div className="container container--video margin-bottom--narrow">
+          <div className="embedded-video">
+            <iframe
+              title={title}
+              width="560"
+              height="315"
+              src={url}
+              frameBorder="0"
+              allow="autoplay; encrypted-media"
+              allowFullScreen
+              className="embedded-video__content"></iframe>
+          </div>
+        </div>
+        <div className="container">
+          <p className="text text--secondary text--justified margin-bottom--default">
+            {description.description}
+          </p>
+        </div>
       </div>
     )
   }
