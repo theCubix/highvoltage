@@ -94,6 +94,12 @@
   margin-top: 0;
   text-rendering: optimizeLegibility;
 
+  & > p > a {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    border-bottom: 6px rgba($red-light, 0.35) solid;
+  }
+
   &--line-height-narrow {
     line-height: 1.4rem;
   }

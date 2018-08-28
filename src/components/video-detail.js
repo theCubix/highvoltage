@@ -28,9 +28,13 @@ class VideoDetail extends React.Component {
           </div>
         </div>
         <div className="container">
-          <p className="text text--secondary text--justified margin-bottom--default">
-            {description.description}
-          </p>
+        <div
+          className="text text--justified"
+          dangerouslySetInnerHTML={{
+            __html: description.childMarkdownRemark.html
+          }}
+        />
+          
         </div>
       </div>
     )
@@ -46,7 +50,9 @@ export const videoDetailFragment = graphql`
     title
     youTubeId
     description {
-      description
+      childMarkdownRemark {
+        html
+      }
     }
   }
 `
