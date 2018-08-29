@@ -28,7 +28,6 @@ class Index extends React.Component {
         <HeroImage />
         <MusicIsOurLife />
         <Videos videos={videos} />
-
         <JSONLD>
           <Generic type="organization" jsonldtype="Organization" schema={{
             name: "Voltage Arc",
