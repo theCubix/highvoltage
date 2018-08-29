@@ -1,6 +1,8 @@
 import * as PropTypes from 'prop-types'
 import React from 'react'
-//import { graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+
+import { JSONLD, Generic } from 'react-structured-data'
 
 import HeroImage from '../components/home/hero-main'
 import MusicIsOurLife from '../components/home/music-is-our-live'
@@ -26,6 +28,20 @@ class Index extends React.Component {
         <HeroImage />
         <MusicIsOurLife />
         <Videos videos={videos} />
+
+        <JSONLD>
+          <Generic type="organization" jsonldtype="Organization" schema={{
+            name: "Voltage Arc",
+            url: "http://www.voltagearc.com",
+            sameAs: [
+              "https://facebook.com/VoltageArc",
+              "https://www.instagram.com/voltage_arc/",
+              "https://www.youtube.com/channel/UCdARchfQvlOBcMNZynTPRCg",
+              "https://www.gigmit.com/voltage-arc"
+            ]
+          }}></Generic>
+        </JSONLD>
+
       </Layout>
     )
   }
