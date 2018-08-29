@@ -42,7 +42,9 @@ body {
 }
 
 .padding-top-header {
-  padding-top: 50px;
+  @include desktop {
+    padding-top: 50px;
+  }
 }
 
 .margin-sides {
@@ -65,5 +67,13 @@ body {
 
   &--narrow {
     margin-bottom: 40px;
+  }
+}
+
+.margin-top {
+  &--mobile {
+    @include phone {
+      margin-top: 40px;
+    }
   }
 }

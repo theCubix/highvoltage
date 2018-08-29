@@ -19,21 +19,18 @@
   }
 
   &--level-2 {
-    font-size: 1.5rem;
-    line-height: 1.5rem;
+    font-size: 1.5em;
+    line-height: 1.35em;
     margin-top: 0;
-    margin-bottom: 1.875rem;
+    margin-bottom: 1.5em;
 
     @include phone {
       font-size: 1.2em;
       line-height: 1.25em;
-      letter-spacing: 0.09;
+      letter-spacing: 0;
       margin-bottom: 1.275em;
+      text-transform: none;
     }
-  }
-
-  &--margin-top-regular {
-    margin-top: 4.375rem;
   }
 
   &--margin-top-large {
