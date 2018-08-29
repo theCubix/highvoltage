@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'High Voltage Theme',
+    title: 'Voltage Arc',
   },
   plugins: [
     {
@@ -25,14 +25,14 @@ module.exports = {
       resolve: 'gatsby-plugin-svgr',
       options: {
         icon: true,
-        viewBox: false,
+        viewBox: true,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'gatsby-starter-default',
-        short_name: 'starter',
+        name: 'Voltage Arc',
+        short_name: 'VA',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
