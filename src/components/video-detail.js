@@ -13,7 +13,6 @@ class VideoDetail extends React.Component {
 
     return(
       <div>
-        <h2 className="heading heading--level-2 container">{title}</h2>
         <div className="container container--video margin-bottom--narrow">
           <div className="embedded-video">
             <iframe
@@ -28,6 +27,7 @@ class VideoDetail extends React.Component {
           </div>
         </div>
         <div className="container">
+        <h2 className="heading heading--level-2">{title}</h2>
         <div
           className="text text--justified"
           dangerouslySetInnerHTML={{
