@@ -68,7 +68,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
     `}
     render={data => 
       <>
-        <Heading className="container" title="Music Is Our Life" letter="V" />
+        <Heading className="container" title="Music Is Our Life" letter="M" />
 
         <div className="z-1">
 
