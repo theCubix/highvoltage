@@ -32,6 +32,7 @@ class Video extends React.Component {
           }}>
           <Img
             fixed={thumbnail.fixed}
+            fluid={thumbnail.fluid}
             outerWrapperClassName="video-thumbnail__image-wrapper"
             className="video-thumbnail__image"
             />
