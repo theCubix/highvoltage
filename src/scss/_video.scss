@@ -80,6 +80,27 @@
     width: 100%!important;
     height: 100%!important;
   }
+
+  &__title-wrapper {
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__title {
+    box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 10px 16px;
+    margin: 0;
+
+    @include phone {
+      font-size: 1.1em!important;
+    }
+  }
 }
 
 //override default styles

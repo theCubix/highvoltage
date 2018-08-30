@@ -41,6 +41,7 @@ class Videos extends React.Component {
                 key={video.id}
                 video={video}
                 paddingTop={56.25}
+                fontSize={1}
               />
             ))}
           </Slider>

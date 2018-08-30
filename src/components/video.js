@@ -13,30 +13,50 @@ class Video extends React.Component {
       title: PropTypes.string,
       thumbnail: PropTypes.object
     }).isRequired,
-    paddingTop: PropTypes.number
+    paddingTop: PropTypes.number,
+    fontSize: PropTypes.number
   }
   render() {
-    const { slug, thumbnail } = this.props.video
+    const { slug, thumbnail, title } = this.props.video
     const paddingTop = this.props.paddingTop
+    const fontSize = this.props.fontSize
+    
     return(
+      
       <Link className="video-thumbnail" to={`/video/${slug}/`}>
+
+        <div className="video-thumbnail__title-wrapper">
+          <p
+          style={{
+            fontSize: `${fontSize}em`
+          }} 
+          className="video-thumbnail__title"
+          >
+            {title}
+          </p>
+        </div>
+
         <div className="video-thumbnail__icon-wrapper">
           <PlayOutline
             fill="#ffffff"
             className="video-thumbnail__icon"/>
         </div>
+
         <div
           className="video-thumbnail__wrapper"
           style={{
             paddingTop: paddingTop + '%'
           }}>
+          
           <Img
             fixed={thumbnail.fixed}
             fluid={thumbnail.fluid}
             outerWrapperClassName="video-thumbnail__image-wrapper"
             className="video-thumbnail__image"
             />
+        
         </div>
+
       </Link>
     )
   }

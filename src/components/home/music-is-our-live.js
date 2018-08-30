@@ -77,6 +77,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
             <Video
               video={data.MusicIsOurLifeLiveVideo}
               paddingTop={100}
+              fontSize={1.2}
             />
             
             <div className="margin-sides--mobile vertically-centered">
@@ -105,6 +106,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
             <Video
               video={data.MusicIsOurLifeVideo}
               paddingTop={56.25}
+              fontSize={1.3}
             />
           </div>
         </div>
