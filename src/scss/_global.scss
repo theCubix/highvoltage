@@ -71,9 +71,17 @@ body {
 }
 
 .margin-top {
+  &--default {
+    margin-top: 2em;
+  }
+
   &--mobile {
     @include phone {
       margin-top: 40px;
     }
+  }
+
+  &--large {
+    margin-top: 5em;
   }
 }
