@@ -44,7 +44,7 @@ class Videos extends React.Component {
               />
             ))}
           </Slider>
-          <ButtonLink dest="/videos/" className="z-1 margin-top--large margin-bottom--narrow btn-link--right">Alle Videos ansehen</ButtonLink>
+          <ButtonLink dest="/videos/" className="z-1 margin-sides--mobile margin-top--large margin-bottom--narrow btn-link--right">Alle Videos ansehen</ButtonLink>
         </div>
       </>
     )
