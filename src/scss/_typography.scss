@@ -4,10 +4,29 @@
   text-transform: uppercase;
   letter-spacing: 0.15em;
 
+  &--nomargin-top {
+    margin-top: 0;
+  }
+
+  &--nomargin-bottom {
+    margin-bottom: 0
+  }
+
+  &--nomargin {
+    margin: 0;
+  }
+
+  &--margin-top-large {
+    margin-top: 7.5rem;
+
+    @include phone {
+      margin-top: 50px;
+    }
+  }
+
   &--level-1 {
     font-size: 2rem;
     line-height: 2rem;
-    margin-top: 0;
     margin-bottom: 5rem;
 
     @include phone {
@@ -21,7 +40,6 @@
   &--level-2 {
     font-size: 1.5em;
     line-height: 1.35em;
-    margin-top: 0;
     margin-bottom: 1.5em;
 
     @include phone {
@@ -30,14 +48,6 @@
       letter-spacing: 0;
       margin-bottom: 1.275em;
       text-transform: none;
-    }
-  }
-
-  &--margin-top-large {
-    margin-top: 7.5rem;
-
-    @include phone {
-      margin-top: 50px;
     }
   }
 
@@ -90,6 +100,14 @@
   line-height: 1.618rem;
   margin-top: 0;
   text-rendering: optimizeLegibility;
+
+  &--nomargin-top {
+    margin-top: 0;
+  }
+
+  &--nomargin-bottom {
+    margin-bottom: 0;
+  }
 
   & > p > a {
     color: rgba(255, 255, 255, 1);

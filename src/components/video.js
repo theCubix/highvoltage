@@ -23,15 +23,10 @@ class Video extends React.Component {
     
     return(
       
-      <Link className="video-thumbnail" to={`/video/${slug}/`}>
+      <Link className="video-thumbnail rounded-corners" to={`/video/${slug}/`}>
 
         <div className="video-thumbnail__title-wrapper">
-          <p
-          style={{
-            fontSize: `${fontSize}em`
-          }} 
-          className="video-thumbnail__title"
-          >
+          <p style={{ fontSize: `${fontSize}em` }} className="video-thumbnail__title">
             {title}
           </p>
         </div>
@@ -42,12 +37,8 @@ class Video extends React.Component {
             className="video-thumbnail__icon"/>
         </div>
 
-        <div
-          className="video-thumbnail__wrapper"
-          style={{
-            paddingTop: paddingTop + '%'
-          }}>
-          
+        <div className="video-thumbnail__wrapper" style={{ paddingTop: `${paddingTop}%` }}>
+
           <Img
             fixed={thumbnail.fixed}
             fluid={thumbnail.fluid}
