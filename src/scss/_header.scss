@@ -1,5 +1,10 @@
 .header {
   background-color: $dark-primary;
+
+  @supports (backdrop-filter: blur()) {
+    background-color: rgba($dark-primary, 0.85);
+    backdrop-filter: blur(16px);
+  }
   
   @include desktop {
     position: fixed;
