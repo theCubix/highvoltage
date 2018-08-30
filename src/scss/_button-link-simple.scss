@@ -1,0 +1,30 @@
+.btn-link-simple {
+  border: 2px solid rgba(#ffffff, 0.6);
+  border-radius: 3px;
+  color: #ffffff;
+  display: inline-block;
+  padding: 7px 35px;
+  text-decoration: none;
+  transition-duration: 200ms;
+  transition-property: background-color, color, transform;
+
+  @include desktop {
+    margin-right: 20px;
+  }
+
+  @include tablet {
+    margin-right: 20px;
+  }
+
+  @include phone {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  &:hover {
+    background-color: rgba(#ffffff, 0.8);
+    color: $dark-primary;
+    transform: translateY(-1px);
+  }
+}
