@@ -70,9 +70,9 @@ const MusicIsOurLife = ({ siteTitle }) => (
       <>
         <Heading className="container" title="Music Is Our Life" letter="M" />
 
-        <div className="z-1">
+        <div className="z-1 margin-bottom--default">
 
-          <div className="container container--video grid grid--two-columns margin-bottom--default">
+          <div className="container container--video grid grid--two-columns margin-bottom--narrow">
 
             <Video
               video={data.MusicIsOurLifeLiveVideo}
@@ -89,7 +89,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
           </div>
 
-          <div className="container grid grid--four-columns margin-bottom--default">
+          <div className="container grid grid--four-columns margin-bottom--narrow">
 
             {data.people.edges.map((node) => (
               <Avatar

@@ -34,7 +34,7 @@ class Videos extends React.Component {
     return(
       <>
         <Heading title="Videos" letter="V" className="container" />
-        <div className="container container--slider">
+        <div className="container container--slider margin-bottom--narrower">
           <Slider {...settings}> 
             {videos.map((video) => (
               <Video
@@ -45,7 +45,10 @@ class Videos extends React.Component {
               />
             ))}
           </Slider>
-          <ButtonLink dest="/videos/" className="z-1 margin-sides--mobile margin-top--large margin-bottom--narrow btn-link--right">Alle Videos ansehen</ButtonLink>
+        </div>
+
+        <div className="container">
+          <ButtonLink dest="/videos/" className="z-1 margin-bottom--default btn-link--right">Alle Videos ansehen</ButtonLink>
         </div>
       </>
     )

@@ -63,15 +63,27 @@ body {
 
 .margin-bottom {
   &--default {
-    margin-bottom: 140px;
+    margin-bottom: 160px;
+
+    @include phone {
+      margin-bottom: 50px;
+    }
+  }
+
+  &--narrow {
+    margin-bottom: 120px;
 
     @include phone {
       margin-bottom: 40px;
     }
   }
 
-  &--narrow {
-    margin-bottom: 40px;
+  &--narrower {
+    margin-bottom: 80px;
+
+    @include phone {
+      margin-bottom: 30px;
+    }
   }
 }
 
