@@ -6,6 +6,7 @@ import { JSONLD, Generic } from 'react-structured-data'
 
 import HeroImage from '../components/home/hero-main'
 import MusicIsOurLife from '../components/home/music-is-our-live'
+import BreakFree from '../components/home/break-free'
 import Videos from '../components/home/videos'
 
 import Layout from '../layouts/main'
@@ -27,6 +28,7 @@ class Index extends React.Component {
       <Layout location={this.props.location}>
         <HeroImage />
         <MusicIsOurLife />
+        <BreakFree />
         <Videos videos={videos} />
         <JSONLD>
           <Generic type="organization" jsonldtype="Organization" schema={{
