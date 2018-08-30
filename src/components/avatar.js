@@ -4,7 +4,7 @@ import Img from 'gatsby-image'
 
 const Avatar = ({img, name, duty}) => (
   <div className="avatar">
-    <Img fluid={img} className="avatar__image" />
+    <Img fluid={img} className="rounded-corners" />
 
     <div className="avatar__description">
       <h3 className="text text--primary avatar__title">{name}</h3>

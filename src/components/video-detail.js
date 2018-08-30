@@ -14,7 +14,7 @@ class VideoDetail extends React.Component {
     return(
       <div>
         <div className="container container--video margin-bottom--narrow">
-          <div className="embedded-video">
+          <div className="embedded-video rounded-corners">
             <iframe
               title={title}
               width="560"

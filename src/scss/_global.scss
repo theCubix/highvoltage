@@ -47,6 +47,11 @@ body {
   }
 }
 
+.rounded-corners {
+  border-radius: 3px;
+  overflow: hidden;
+}
+
 .margin-sides {
   @include phone {
     &--mobile {
