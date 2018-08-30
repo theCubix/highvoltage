@@ -2,31 +2,40 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Heading from '../heading'
+import Video from '../video'
 import Avatar from '../avatar'
 
 const MusicIsOurLife = ({ siteTitle }) => (
   <StaticQuery
     query={graphql`
-      query People {
-        julian: file(relativePath: {eq: "images/people/julian-stein.jpg"}) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
+      query MusicIsOurLife {
+        people: allContentfulPeople(filter: {affiliation: {eq: "Band"}}, sort: {fields: createdAt}) {
+          edges {
+            node {
+              id
+              firstName
+              function
+              profilePicture {
+                fluid(maxWidth: 300) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                }
+              }
             }
           }
         }
-        toni: file(relativePath: {eq: "images/people/toni-hoerner.jpg"}) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
+        MusicIsOurLifeLiveVideo: contentfulVideo(contentful_id: {eq: "4wOH8fS2JO2ockYys6wYAA"}) {
+          id
+          title
+          slug
+          thumbnail {
+            fluid {
               base64
               tracedSVG
               aspectRatio
@@ -35,14 +44,15 @@ const MusicIsOurLife = ({ siteTitle }) => (
               srcWebp
               srcSetWebp
               sizes
-              originalImg
-              originalName
             }
           }
         }
-        merlin: file(relativePath: {eq: "images/people/merlin-eichenberger.jpg"}) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
+        MusicIsOurLifeVideo: contentfulVideo(contentful_id: {eq: "6FYy7ejCPmKWMAmks6OCSG"}) {
+          id
+          title
+          slug
+          thumbnail {
+            fluid {
               base64
               tracedSVG
               aspectRatio
@@ -51,24 +61,6 @@ const MusicIsOurLife = ({ siteTitle }) => (
               srcWebp
               srcSetWebp
               sizes
-              originalImg
-              originalName
-            }
-          }
-        }
-        timon: file(relativePath: {eq: "images/people/timon-forrer.jpg"}) {
-          childImageSharp {
-            fluid(maxWidth: 300) {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
             }
           }
         }
@@ -76,15 +68,16 @@ const MusicIsOurLife = ({ siteTitle }) => (
     `}
     render={data => 
       <>
-        <Heading className="container" title="Voltage Arc – Music Is Our Life" letter="V" />
+        <Heading className="container" title="Music Is Our Life" letter="V" />
+
         <div className="z-1">
 
           <div className="container container--video grid grid--two-columns margin-bottom--default">
-            
-            <div
-              style={{ backgroundImage: 'url(https://source.unsplash.com/random/500x500)' }}
-              className="dummy-video dummy-video--1x1"
-            ></div>
+
+            <Video
+              video={data.MusicIsOurLifeLiveVideo}
+              paddingTop={100}
+            />
             
             <div className="margin-sides--mobile vertically-centered">
               <div>
@@ -97,18 +90,22 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
           <div className="container grid grid--four-columns margin-bottom--default">
 
-            <Avatar img={data.julian.childImageSharp.fluid} name="Julian" duty="Bass" />
-            <Avatar img={data.merlin.childImageSharp.fluid} name="Merlin" duty="Gitarre" />
-            <Avatar img={data.toni.childImageSharp.fluid} name="Toni" duty="Gesang" />
-            <Avatar img={data.timon.childImageSharp.fluid} name="Timon" duty="Schlagzeug" />
+            {data.people.edges.map((node) => (
+              <Avatar
+                key={node.node.id}
+                name={node.node.firstName}
+                duty={node.node.function}
+                img={node.node.profilePicture.fluid}
+              />
+            ))}
 
           </div>
 
           <div className="container container--video">
-            <div
-              style={{ backgroundImage: 'url(https://source.unsplash.com/random/640x360)' }}
-              className="dummy-video dummy-video--16x9 margin-bottom--default"
-            ></div>
+            <Video
+              video={data.MusicIsOurLifeVideo}
+              paddingTop={56.25}
+            />
           </div>
         </div>
       </>
