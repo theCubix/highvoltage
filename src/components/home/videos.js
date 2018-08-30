@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 
 import Heading from '../../components/heading'
 import Video from '../../components/video'
+import ButtonLink from '../../components/button-link'
 
 
 class Videos extends React.Component {
@@ -43,6 +44,7 @@ class Videos extends React.Component {
               />
             ))}
           </Slider>
+          <ButtonLink dest="/videos/" className="z-1 margin-top--large margin-bottom--narrow btn-link--right">Alle Videos ansehen</ButtonLink>
         </div>
       </>
     )
