@@ -51,8 +51,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
               frameBorder="0"
               height="300"
               style={{
-                width: '660px',
-                maxWidth: '100%',
+                width: '100%',
                 overflow: 'hidden',
                 background: 'transparent'
               }}
