@@ -17,14 +17,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
               function
               profilePicture {
                 fluid(maxWidth: 300) {
-                  base64
-                  tracedSVG
-                  aspectRatio
-                  src
-                  srcSet
-                  srcWebp
-                  srcSetWebp
-                  sizes
+                  ...GatsbyContentfulFluid_tracedSVG
                 }
               }
             }
@@ -36,14 +29,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
           slug
           thumbnail {
             fluid {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
@@ -53,14 +39,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
           slug
           thumbnail {
             fluid {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }

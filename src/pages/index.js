@@ -60,15 +60,7 @@ export const pageQuery = graphql`
           slug
           thumbnail {
             fixed(width: 426, height: 240) {
-              base64
-              tracedSVG
-              aspectRatio
-              width
-              height
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
+              ...GatsbyContentfulFixed_tracedSVG
             }
           }
         }

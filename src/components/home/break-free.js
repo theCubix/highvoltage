@@ -19,16 +19,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
         cover: file(relativePath: {eq: "images/break-free-cover-final.jpg"}) {
           childImageSharp {
             fluid(maxWidth: 300) {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
+              ...GatsbyImageSharpFluid_tracedSVG
             }
           }
         }
