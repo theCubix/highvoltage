@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'gatsby'
+import React from 'react'
 
 class ButtonLink extends React.Component {
   render() {
@@ -14,6 +13,6 @@ class ButtonLink extends React.Component {
       >{title}</a>
     )
   }
-};
+}
 
 export default ButtonLink;
