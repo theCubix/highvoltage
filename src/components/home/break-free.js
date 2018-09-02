@@ -29,7 +29,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
       <>
         <Heading className="container" title="Break Free – unsere erste EP" letter="B" />
 
-        <div className="container margin-bottom--default">
+        <div className="container container--video">
           
           <div className="grid break-free-grid margin-bottom--narrower">
 
@@ -52,19 +52,19 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
           </div>
 
-          <div className="break-free-links">
-
-            <h2 className="heading heading--level-2 heading--nomargin-top">Erhältlich bei</h2>
-
-            {links.map(link => (
-              <ButtonLink
-                key={link.id}
-                dest={link.url}>
-                {link.title}
-              </ButtonLink>
-            ))}
-          </div>
        
+        </div>
+        <div className="container break-free-links margin-bottom--default">
+
+          <h2 className="heading heading--level-2 heading--nomargin-top">Erhältlich bei</h2>
+
+          {links.map(link => (
+            <ButtonLink
+              key={link.id}
+              dest={link.url}>
+              {link.title}
+            </ButtonLink>
+          ))}
         </div>
       </>
     }
