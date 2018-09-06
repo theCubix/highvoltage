@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "next",
+    "@babel/core": "^7.0.0",
+    "gatsby": "^2.0.0-rc.13",
     "gatsby-image": "^2.0.0-beta.8",
     "gatsby-plugin-manifest": "next",
     "gatsby-plugin-offline": "next",
