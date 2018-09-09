@@ -1,6 +1,8 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
+import Container from '../Container'
+import Grid from '../Grid'
 import Heading from '../heading'
 import Video from '../video'
 import Avatar from '../avatar'
@@ -47,28 +49,31 @@ const MusicIsOurLife = ({ siteTitle }) => (
     `}
     render={data => 
       <>
-        <Heading className="container" title="Music Is Our Life" letter="M" />
+        <Container>
+          <Heading title="Music Is Our Life" letter="M" />
+        </Container>
 
-        <div className="z-1 margin-bottom--default">
+        <Container video marginBottom="narrow">
 
-          <div className="container container--video grid grid--two-columns margin-bottom--narrow">
-
+          <Grid columns="2">
             <Video
               video={data.MusicIsOurLifeLiveVideo}
               paddingTop={100}
               fontSize={1.2}
             />
-            
+
             <div className="margin-sides--mobile vertically-centered">
               <div>
                 <h2 className="text text--justified text--primary">Musik ist für uns mehr als nur ein Zeitvertreib</h2>
                 <p className="text text--justified">Wir setzen uns intensiv mit Musik auseinander und kreieren unsere ganz eigenen Songs. Von härtestem Metal bis zu allgemeintauglichem Rock – für jeden ist etwas dabei.</p>
               </div>
             </div>
+          </Grid>
+        </Container>
+        
+        <Container marginBottom="narrow">
 
-          </div>
-
-          <div className="container grid grid--four-columns margin-bottom--narrow">
+          <Grid columns="4">
 
             {data.people.edges.map((node) => (
               <Avatar
@@ -78,17 +83,18 @@ const MusicIsOurLife = ({ siteTitle }) => (
                 img={node.node.profilePicture.fluid}
               />
             ))}
+          
+          </Grid>
+          
+        </Container>
 
-          </div>
-
-          <div className="container container--video">
-            <Video
-              video={data.MusicIsOurLifeVideo}
-              paddingTop={56.25}
-              fontSize={1.3}
-            />
-          </div>
-        </div>
+        <Container video marginBottom="default">
+          <Video
+            video={data.MusicIsOurLifeVideo}
+            paddingTop={56.25}
+            fontSize={1.3}
+          />
+        </Container>
       </>
     }
   />
