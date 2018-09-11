@@ -15,4 +15,11 @@ const RoundedCorners = `
   border-radius: 3px;
   overflow: hidden;
 `
-export { MediaQueries, RoundedCorners}
+
+const Colours = {
+  bgPrimary: '#101010',
+  bgLight: '#161616',
+  basePrimary: '#ffffff'
+}
+
+export { MediaQueries, RoundedCorners, Colours }
