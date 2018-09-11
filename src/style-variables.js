@@ -5,7 +5,14 @@ const BreakPoints = {
 }
 
 const MediaQueries = {
-  mobile: `@media screen and (min-width: ${BreakPoints.mobile}px) and (max-width: ${BreakPoints.tablet - 1 }px)`
+  mobile: `@media screen and (min-width: ${BreakPoints.mobile}px) and (max-width: ${BreakPoints.tablet - 1 }px)`,
+  tablet: `@media screen and (min-width: ${BreakPoints.tablet}px) and (max-width: ${BreakPoints.desktop - 1 }px)`,
+  desktop: `@media screen and (min-width: ${BreakPoints.desktop})`
 }
 
-export default MediaQueries
+
+const RoundedCorners = `
+  border-radius: 3px;
+  overflow: hidden;
+`
+export { MediaQueries, RoundedCorners}
