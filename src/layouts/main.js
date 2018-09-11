@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
 import Header from '../components/header'
+import BottomNav from '../components/BottomNav'
 
 import '../layout.scss'
 
@@ -36,6 +37,8 @@ const Main = ({ children, data }) => (
         <div className="dark-background padding-top-header">
           {children}
         </div>
+
+        <BottomNav />
 
       </>
     )}
