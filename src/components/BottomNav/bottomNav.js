@@ -27,7 +27,6 @@ class BottomNav extends React.Component {
       display: flex;
       height: 56px;
       justify-content: space-around;
-      padding: 0 16px;
       position: fixed;
       z-index: 666;
     `
