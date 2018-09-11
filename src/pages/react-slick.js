@@ -5,7 +5,7 @@ import Slider from 'react-slick'
 
 import Layout from '../layouts/main'
 
-import Video from '../components/video'
+import Video from '../components/Video'
 
 class VideoSlider extends React.Component {
   static propTypes = {
@@ -40,9 +40,9 @@ class VideoSlider extends React.Component {
             
             {videos.map((video) => (
               <Video
-                location={this.props.location}
                 key={video.id}
                 video={video}
+                isLink
               />
             ))}
 

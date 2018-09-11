@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Container from '../Container'
 import Grid from '../Grid'
 import Heading from '../heading'
-import Video from '../video'
+import Video from '../Video'
 import Avatar from '../avatar'
 
 const MusicIsOurLife = ({ siteTitle }) => (
@@ -56,11 +56,11 @@ const MusicIsOurLife = ({ siteTitle }) => (
         <Container video marginBottom="narrow">
 
           <Grid columns="2">
+
             <Video
               video={data.MusicIsOurLifeLiveVideo}
-              paddingTop={100}
-              fontSize={1.2}
-            />
+              fontSize="large"
+              isLink />
 
             <div className="margin-sides--mobile vertically-centered">
               <div>
@@ -91,8 +91,8 @@ const MusicIsOurLife = ({ siteTitle }) => (
         <Container video marginBottom="default">
           <Video
             video={data.MusicIsOurLifeVideo}
-            paddingTop={56.25}
-            fontSize={1.3}
+            fontSize="larger"
+            isLink
           />
         </Container>
       </>

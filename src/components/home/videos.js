@@ -2,9 +2,8 @@ import React from 'react'
 import Slider from 'react-slick'
 
 import Heading from '../../components/heading'
-import Video from '../../components/video'
+import Video from '../../components/Video'
 import ButtonLink from '../../components/button-link'
-
 
 class Videos extends React.Component {
   render() {
@@ -40,8 +39,8 @@ class Videos extends React.Component {
               <Video
                 key={video.id}
                 video={video}
-                paddingTop={56.25}
-                fontSize={1}
+                isLink
+                isSlider
               />
             ))}
           </Slider>
