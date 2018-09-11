@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'react-emotion'
 
-import MediaQueries from '../../style-variables'
+import { MediaQueries } from '../../style-variables'
 
 class Grid extends React.Component {
   render() {
