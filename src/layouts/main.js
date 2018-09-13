@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
@@ -8,7 +7,8 @@ import BottomNav from '../components/BottomNav'
 
 import '../layout.scss'
 
-const Main = ({ children, data }) => (
+
+const Main = ({ children, data, props }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -19,7 +19,7 @@ const Main = ({ children, data }) => (
         }
       }
     `}
-    render={data => (
+    render={ data => (
       <>
         <Helmet
           title={data.site.siteMetadata.title}
@@ -44,9 +44,5 @@ const Main = ({ children, data }) => (
     )}
   />
 )
-
-Main.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Main
