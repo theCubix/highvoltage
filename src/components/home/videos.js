@@ -5,6 +5,9 @@ import Heading from '../../components/heading'
 import Video from '../../components/Video'
 import ButtonLink from '../../components/button-link'
 
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
 class Videos extends React.Component {
   render() {
     let videos = this.props.videos
