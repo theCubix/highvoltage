@@ -22,4 +22,4 @@ const Colours = {
   basePrimary: '#ffffff'
 }
 
-export { MediaQueries, RoundedCorners, Colours }
+export { BreakPoints, MediaQueries, RoundedCorners, Colours }
