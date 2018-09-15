@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 
 import Heading from '../heading'
 import ButtonLink from '../button-link-simple'
+import Container from '../Container'
 
 const links = [
     { id: 1, title: 'Apple Music', url: 'https://itunes.apple.com/ch/album/break-free-ep/1372030544?app=music' },
@@ -29,7 +30,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
       <>
         <Heading className="container" title="Break Free – unsere erste EP" letter="B" />
 
-        <div className="container container--video">
+        <Container video marginBottom="narrow">
           
           <div className="grid break-free-grid margin-bottom--narrower">
 
@@ -53,8 +54,10 @@ const MusicIsOurLife = ({ siteTitle }) => (
           </div>
 
        
-        </div>
-        <div className="container break-free-links margin-bottom--default">
+       </Container>
+
+       <Container marginBottom="default">
+        
 
           <h2 className="heading heading--level-2 heading--nomargin-top">Erhältlich bei</h2>
 
@@ -65,7 +68,8 @@ const MusicIsOurLife = ({ siteTitle }) => (
               {link.title}
             </ButtonLink>
           ))}
-        </div>
+
+        </Container>
       </>
     }
   />
