@@ -1,28 +1,25 @@
 import React from 'react'
 import styled from 'react-emotion'
 
+import { MediaQueries as media } from '../../style-variables'
+
 class Container extends React.Component {
   render() {
     const children = this.props.children
     const video = this.props.video
     const marginBottom = this.props.marginBottom
 
-    const breakpoints = {
-      phone: '320px',
-      tablet: '480px'
-    }
-
     const Wrapper = styled('div')`
       margin: 0 auto;
       max-width: 780px;
       position: relative;
-      @media screen and (min-width: ${breakpoints.phone}) and (max-width: ${breakpoints.tablet}) {
+      ${media.mobile} {
         padding-left: ${ video ? '0' : '16px' };
         padding-right: ${ video ? '0' : '16px' };
         margin-bottom: ${
-          marginBottom === 'default' ? '50px' :
-          marginBottom === 'narrow' ? '40px' :
-          marginBottom === 'narrower' ? '30px' :
+          marginBottom === 'default' ? '100px' :
+          marginBottom === 'narrow' ? '80px' :
+          marginBottom === 'narrower' ? '50px' :
           '0'
         };
       }
