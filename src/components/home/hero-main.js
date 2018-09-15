@@ -2,10 +2,14 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'react-emotion'
 
+import { MediaQueries as media } from '../../style-variables'
 import Img from 'gatsby-image'
 
 const Wrapper = styled(Img)`
   margin-bottom: 7.5em;
+  ${media.mobile} {
+    margin-bottom: 2em;
+  }
 `
 
 const HeroImage = ({data}) => (
