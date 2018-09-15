@@ -4,33 +4,67 @@ import { Link } from 'gatsby'
 import styled, { css } from 'react-emotion'
 
 // Variables for Styling
-import { RoundedCorners, MediaQueries } from '../../style-variables'
+import { MediaQueries as media, Colours } from '../../style-variables'
 
 // Components
 import Img from 'gatsby-image'
+import { Text } from '../Typography'
 
 // Icon
 import { ReactComponent as PlayOutline } from '../../icons/play-outline.svg'
+import { ReactComponent as Share } from '../../icons/share.svg'
 
 class Video extends React.Component {
-  render() {
-    const { slug, title, thumbnail } = this.props.video
-    const fontSize = this.props.fontSize
-    const isLink = this.props.isLink
-    const isSlider = this.props.isSlider
-    const isSquare = this.props.isSquare
-    const roundedMobile = this.props.roundedMobile
+  constructor() {
+    super()
+    this.state = { iframeActive: false }
+  }
 
-    const Wrapper = styled(Link)`
+  handleClick = (title, pageUrl) => {
+    if(navigator.share) {
+      navigator.share({
+        title: title,
+        url: pageUrl
+      }).then(() => console.log('successfull share')).catch((error) => console.log(error))
+    }
+  }
+
+  render() {
+    const {
+      video,
+      fontSize,
+      isSquare,
+      isSlider,
+      roundedMobile
+    } = this.props
+
+    const {
+      slug,
+      title,
+      youTubeId,
+      thumbnail
+    } = video
+
+    const url = `https://www.youtube.com/embed/${youTubeId}?showinfo=0&autoplay=1`
+    const pageUrl = `https:voltage-arc.netlify.com/video/${slug}/`
+
+    const Root = styled('div')`
+      margin-left: ${ isSlider ? '8px' : '0' };
+      margin-right: ${ isSlider ? '8px' : '0' };
+    `
+
+    const Wrapper = styled('div')`
       display: block;
-      margin-left: ${ isSlider ? '8px' : 0 };
-      margin-right: ${ isSlider ? '8px' : 0 };
+      overflow: hidden;
       position: relative;
-      ${RoundedCorners}
-      ${MediaQueries.mobile} {
+      border-radius: ${ this.state.iframeActive ? '3px 3px 0 0' : '3px' };
+      ${media.mobile} {
         margin: 0px;
         border-radius: ${ roundedMobile ? '3px' : '0' };
       }
+      ${ this.state.iframeActive && `
+        padding-top: ${ isSquare ? '100%' : '56.25%' };
+      `}
     `
 
     const Title = styled('p')`
@@ -46,19 +80,19 @@ class Video extends React.Component {
       position: absolute;
       margin: 0;
       z-index: 1;
-      ${MediaQueries.tablet} {
+      ${media.tablet} {
         font-size: ${
-          fontSize === 'larger' ? '1.3em;' :
-          fontSize === 'large' ? '1.2em;' :
-          '1.1em;'
-        }
+          fontSize === 'larger' ? '1.3em' :
+          fontSize === 'large' ? '1.2em' :
+          '1.1em'
+        };
       }
-      ${MediaQueries.desktop} {
+      ${media.desktop} {
         font-size: ${
-          fontSize === 'larger' ? '1.3em;' :
-          fontSize === 'large' ? '1.2em;' :
-          '1.1em;'
-        }
+          fontSize === 'larger' ? '1.3em' :
+          fontSize === 'large' ? '1.2em' :
+          '1.1em'
+        };
       }
     `
 
@@ -98,7 +132,7 @@ class Video extends React.Component {
       z-index: 1;
     `
 
-    const Icon = styled(PlayOutline)`
+    const PlayIcon = styled(PlayOutline)`
       fill: #ffffff;  
       height: 56px;
       transition: transform 300ms ease;
@@ -108,27 +142,87 @@ class Video extends React.Component {
       }
     `
 
-    if(isLink) {
-      return(
-        <Wrapper to={`/video/${slug}/`}>
-          
-          <Title>{title}</Title>
+    const Iframe = styled('iframe')`
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100%;
+    `
 
-          <IconWrapper>
-            <Icon />
-          </IconWrapper>
+    const ShareIcon = styled(Share)`
+      fill: #ffffff;
+      margin: 13px 16px 9px 16px;
+      opacity: 0.5;
+      transition: opacity 300ms ease;
+      :hover {
+        opacity: 1;
+      }
+    `
 
-          <ImgWrapper>
-            <StyledImg
-              outerWrapperClassName={`${ImgOuterWrapper}`}
-              fixed={thumbnail.fixed}
-              fluid={thumbnail.fluid}
-            />
-          </ImgWrapper>
+    const InfoWrapper = styled('div')`
+      background-color: ${Colours.bgLight};
+      border-radius: 0 0 3px 3px;
+      max-height: ${ this.state.iframeActive ? '50px' : '0' };
+      overflow: hidden;
+      transition: max-height 300ms ease;
+    `
 
-        </Wrapper>
-      )
-    }
+    const Info = styled(Link)`
+      float: right;
+      margin: 10px 16px;
+      opacity: 0.8;
+      transition: opacity 300ms ease;
+      text-decoration: none;
+      :hover {
+        opacity: 1;
+      }
+    `
+
+    return(
+      <Root>
+        { this.state.iframeActive === false ?
+          <Wrapper
+            onClick={() => this.setState({
+              iframeActive: true
+            })}
+          >
+            <Title>{title}</Title>
+    
+            <IconWrapper>
+              <PlayIcon />
+            </IconWrapper>
+    
+            <ImgWrapper>
+              <StyledImg
+                outerWrapperClassName={`${ImgOuterWrapper}`}
+                fixed={thumbnail.fixed}
+                fluid={thumbnail.fluid}
+              />
+            </ImgWrapper>
+    
+          </Wrapper>
+          :
+          <Wrapper>
+            <Iframe
+                title={title}
+                width="560"
+                height="315"
+                src={url}
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                autoPlay
+                allowFullScreen></Iframe>
+          </Wrapper>
+        }
+        <InfoWrapper>
+          { navigator.share && <ShareIcon onClick={(e) => this.handleClick(title, pageUrl, e)} /> }
+          <Info to={`/video/${slug}/`}><Text isSpan>Info</Text></Info>
+        </InfoWrapper>
+      </Root>
+    )
   }
 }
 
