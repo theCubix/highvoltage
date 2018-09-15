@@ -5,15 +5,17 @@ import styled from 'react-emotion'
 import Container from '../Container'
 import Grid from '../Grid'
 import Video from '../Video'
-import Avatar from '../avatar'
-import { SectionTitle as Title } from '../Typography'
+import Avatar from '../Avatar'
+import { SectionTitle as Title, SubTitle, Text } from '../Typography'
 
 import { MediaQueries as media } from '../../style-variables'
 
 const TextWrapper = styled('div')`
+  display: flex;
+  align-items: center;
   ${media.mobile} {
-      margin-right: 16px;
-      margin-left: 16px;
+    margin-right: 16px;
+    margin-left: 16px;
   }
 `
 
@@ -60,7 +62,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
     render={data => 
       <>
         <Container>
-          <Title>Hey</Title>
+          <Title>Music Is Our Life</Title>
         </Container>
 
         <Container video marginBottom="narrower">
@@ -74,8 +76,8 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
             <TextWrapper>
               <div>
-                <h2 className="text text--justified text--primary">Musik ist für uns mehr als nur ein Zeitvertreib</h2>
-                <p className="text text--justified">Wir setzen uns intensiv mit Musik auseinander und kreieren unsere ganz eigenen Songs. Von härtestem Metal bis zu allgemeintauglichem Rock – für jeden ist etwas dabei.</p>
+                <Text justified importance="primary">Musik ist für uns mehr als nur ein Zeitvertreib</Text>
+                <Text justified>Wir setzen uns intensiv mit Musik auseinander und kreieren unsere ganz eigenen Songs. Von härtestem Metal bis zu allgemeintauglichem Rock – für jeden ist etwas dabei.</Text>
               </div>
             </TextWrapper>
           </Grid>
@@ -99,6 +101,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
         </Container>
 
         <Container marginBottom="default">
+          <SubTitle>Aus dem Studio</SubTitle>
           <Video
             roundedMobile
             video={data.MusicIsOurLifeVideo}
