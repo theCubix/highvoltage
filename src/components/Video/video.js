@@ -218,7 +218,7 @@ class Video extends React.Component {
           </Wrapper>
         }
         <InfoWrapper>
-          { navigator.share && <ShareIcon onClick={(e) => this.handleClick(title, pageUrl, e)} /> }
+          <ShareIcon onClick={(e) => this.handleClick(title, pageUrl, e)} />
           <Info to={`/video/${slug}/`}><Text isSpan>Info</Text></Info>
         </InfoWrapper>
       </Root>
