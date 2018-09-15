@@ -10,7 +10,6 @@ const MediaQueries = {
   desktop: `@media screen and (min-width: ${BreakPoints.desktop})`
 }
 
-
 const RoundedCorners = `
   border-radius: 3px;
   overflow: hidden;
