@@ -1,35 +1,21 @@
 // Dev Imports
 import React from 'react'
-import { Link } from 'gatsby'
 import styled, { css } from 'react-emotion'
 
 // Variables for Styling
-import { MediaQueries as media, Colours } from '../../style-variables'
+import { MediaQueries as media } from '../../style-variables'
 
 // Components
 import Img from 'gatsby-image'
-import { Text } from '../Typography'
+import ButtonLink from '../button-link'
 
 // Icon
 import { ReactComponent as PlayOutline } from '../../icons/play-outline.svg'
-import { ReactComponent as Share } from '../../icons/share.svg'
 
 class Video extends React.Component {
   constructor() {
     super()
     this.state = { iframeActive: false }
-  }
-
-  handleClick = () => {
-    if(navigator.share) {
-      navigator.share({
-        title: 'Web Fundamentals',
-        text: 'Check out Web Fundamentals — it rocks!',
-        url: 'https://developers.google.com/web',
-      })
-        .then(() => console.log('Successful share'))
-        .catch((error) => console.log('Error sharing', error))
-    }
   }
 
   render() {
@@ -49,7 +35,6 @@ class Video extends React.Component {
     } = video
 
     const url = `https://www.youtube.com/embed/${youTubeId}?showinfo=0&autoplay=1`
-    const pageUrl = `https:voltage-arc.netlify.com/video/${slug}/`
 
     const Root = styled('div')`
       margin-left: ${ isSlider ? '8px' : '0' };
@@ -155,33 +140,9 @@ class Video extends React.Component {
       width: 100%;
     `
 
-    const ShareIcon = styled(Share)`
-      fill: #ffffff;
-      margin: 13px 16px 9px 16px;
-      opacity: 0.5;
-      transition: opacity 300ms ease;
-      :hover {
-        opacity: 1;
-      }
-    `
-
-    const InfoWrapper = styled('div')`
-      background-color: ${Colours.bgLight};
-      border-radius: 0 0 3px 3px;
-      max-height: ${ this.state.iframeActive ? '50px' : '0' };
-      overflow: hidden;
-      transition: max-height 300ms ease;
-    `
-
-    const Info = styled(Link)`
+    const Link = styled(ButtonLink)`
+      margin-top: 20px;
       float: right;
-      margin: 10px 16px;
-      opacity: 0.8;
-      transition: opacity 300ms ease;
-      text-decoration: none;
-      :hover {
-        opacity: 1;
-      }
     `
 
     return(
@@ -208,22 +169,21 @@ class Video extends React.Component {
     
           </Wrapper>
           :
-          <Wrapper>
-            <Iframe
-                title={title}
-                width="560"
-                height="315"
-                src={url}
-                frameBorder="0"
-                allow="autoplay; encrypted-media"
-                autoPlay
-                allowFullScreen></Iframe>
-          </Wrapper>
+          <>
+            <Wrapper>
+              <Iframe
+                  title={title}
+                  width="560"
+                  height="315"
+                  src={url}
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  autoPlay
+                  allowFullScreen></Iframe>
+            </Wrapper>
+            <Link dest={`/video/${slug}/`}>Mehr Infos zum Video</Link>
+          </>
         }
-        <InfoWrapper>
-          <ShareIcon onClick={(e) => this.handleClick(e)} />
-          <Info to={`/video/${slug}/`}><Text isSpan>Info</Text></Info>
-        </InfoWrapper>
       </Root>
     )
   }
