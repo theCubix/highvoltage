@@ -45,7 +45,6 @@ export default VideoDetail
 
 export const videoDetailFragment = graphql`
   fragment VideoDetail_details on ContentfulVideo {
-    #specify the fields we want to query
     id
     title
     youTubeId
