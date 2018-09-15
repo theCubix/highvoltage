@@ -61,6 +61,7 @@ export const pageQuery = graphql`
           id
           title
           slug
+          youTubeId
           thumbnail {
             fixed(width: 426, height: 240) {
               ...GatsbyContentfulFixed_tracedSVG

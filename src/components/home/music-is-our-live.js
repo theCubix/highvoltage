@@ -41,6 +41,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
           id
           title
           slug
+          youTubeId
           thumbnail {
             fluid {
               ...GatsbyContentfulFluid_tracedSVG
@@ -51,6 +52,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
           id
           title
           slug
+          youTubeId
           thumbnail {
             fluid {
               ...GatsbyContentfulFluid_tracedSVG
@@ -72,7 +74,8 @@ const MusicIsOurLife = ({ siteTitle }) => (
             <Video
               video={data.MusicIsOurLifeLiveVideo}
               fontSize="large"
-              isLink />
+              isSquare
+            />
 
             <TextWrapper>
               <div>
@@ -106,7 +109,6 @@ const MusicIsOurLife = ({ siteTitle }) => (
             roundedMobile
             video={data.MusicIsOurLifeVideo}
             fontSize="larger"
-            isLink
           />
         </Container>
       </>
