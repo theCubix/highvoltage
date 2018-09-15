@@ -68,9 +68,9 @@ class MainTitle extends React.Component {
       children
     } = this.props
     return(
-      <Wrapper>
+      <H1>
         {children}
-      </Wrapper>
+      </H1>
     )
   }
 }
@@ -80,10 +80,27 @@ class SubTitle extends React.Component {
     const {
       children
     } = this.props
+
+    
+
+    const H2 = styled(H.withComponent('h2'))`
+      font-size: 1.5em;
+      line-height: 1.35em;
+      margin-bottom: 1.5em;
+      text-transform: uppercase;
+      ${media.mobile} {
+        font-size: 1.2em;
+        line-height: 1.25em;
+        letter-spacing: 0;
+        margin-bottom: 1.275em;
+        text-transform: none;
+      }
+    `
+
     return(
-      <Wrapper>
+      <H2>
         {children}
-      </Wrapper>
+      </H2>
     )
   }
 }
@@ -92,20 +109,59 @@ class Text extends React.Component {
   render() {
     const {
       children,
-      isSpan
+      isSpan,
+      importance,
+      lineHeight,
+      noMarginBottom,
+      justified
     } = this.props
+
+    const P = styled('p')`
+      color: ${ 
+        importance === 'primary' ? '#ffffff' : 
+        importance === 'secondary' ? 'rgba(255, 255, 255, 0.5)' :
+        'rgba(255, 255, 255, 0.8)'
+      };
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: ${
+        lineHeight === 'narrow' ? '1.4em' :
+        lineHeight === 'narrower' ? '1.2em' : 
+        '1.618em'
+      };
+      margin-top: 0;
+      ${ noMarginBottom && 
+        `margin-bottom: 0px;`
+      }
+      text-rendering: optimizeLegibility;
+      ${ justified && 
+        `
+        @supports (hyphens: auto) {
+          hyphens: auto;
+          text-align: justify;
+          ${media.mobile} {
+            hyphens: none;
+            text-align: left;
+          }
+        }
+        `
+      }
+    `
+
+    const Span = P.withComponent('span')
 
     if(isSpan) {
       return(
-        <Wrapper>
+        <Span>
           {children}
-        </Wrapper>
+        </Span>
       )
     } else {
       return(
-        <Wrapper>
+        <P>
           {children}
-        </Wrapper>
+        </P>
       )
     }
   }
