@@ -19,6 +19,7 @@ class Video extends React.Component {
     const isLink = this.props.isLink
     const isSlider = this.props.isSlider
     const isSquare = this.props.isSquare
+    const roundedMobile = this.props.roundedMobile
 
     const Wrapper = styled(Link)`
       display: block;
@@ -28,7 +29,7 @@ class Video extends React.Component {
       ${RoundedCorners}
       ${MediaQueries.mobile} {
         margin: 0px;
-        border-radius: 0;
+        border-radius: ${ roundedMobile ? '3px' : '0' };
       }
     `
 
