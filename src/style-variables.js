@@ -18,7 +18,8 @@ const RoundedCorners = `
 const Colours = {
   bgPrimary: '#101010',
   bgLight: '#161616',
-  basePrimary: '#ffffff'
+  basePrimary: '#ffffff',
+  accentPrimary: '#921B1B'
 }
 
 export { BreakPoints, MediaQueries, RoundedCorners, Colours }
