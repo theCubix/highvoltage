@@ -1,7 +1,12 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'react-emotion'
 
 import Img from 'gatsby-image'
+
+const Wrapper = styled(Img)`
+  margin-bottom: 7.5em;
+`
 
 const HeroImage = ({data}) => (
   <StaticQuery
@@ -22,7 +27,7 @@ const HeroImage = ({data}) => (
       }`
     }
     render={data => (
-      <Img
+      <Wrapper
         style={{
           width: "100%",
           height: 0,
