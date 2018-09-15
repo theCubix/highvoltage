@@ -20,12 +20,15 @@ class Video extends React.Component {
     this.state = { iframeActive: false }
   }
 
-  handleClick = (title) => {
+  handleClick = () => {
     if(navigator.share) {
       navigator.share({
-        title: title,
-        url: 'https://voltage-arc.netlify.com'
-      }).then(() => console.log('successfull share')).catch((error) => console.log(error))
+        title: 'Web Fundamentals',
+        text: 'Check out Web Fundamentals — it rocks!',
+        url: 'https://developers.google.com/web',
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error))
     }
   }
 
@@ -218,7 +221,7 @@ class Video extends React.Component {
           </Wrapper>
         }
         <InfoWrapper>
-          <ShareIcon onClick={(e) => this.handleClick(title, e)} />
+          <ShareIcon onClick={(e) => this.handleClick(e)} />
           <Info to={`/video/${slug}/`}><Text isSpan>Info</Text></Info>
         </InfoWrapper>
       </Root>
