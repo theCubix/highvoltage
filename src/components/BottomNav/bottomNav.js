@@ -68,7 +68,6 @@ class BottomNav extends React.Component {
       width: auto;
       .active & {
         opacity: 1;
-        heigth: 20px;
       }
     `
     
@@ -81,20 +80,19 @@ class BottomNav extends React.Component {
     `
 
     // Link text styles
-    const LinkTitle = styled('span')`
-      color: ${Colours.basePrimary};
-      display: block;
-      font-family: 'Source Sans Pro', sans-serif;
-      font-size: 11px;
-      font-weight: 300;
-      opacity: 0.6;
-      transition: all 300ms ease;
-      transition-property: opacity, font-size;
-      .active & {
-        opacity: 1;
-        font-size: 13px;
-      }
-    `
+    // const LinkTitle = styled('span')`
+    //   color: ${Colours.basePrimary};
+    //   display: block;
+    //   font-family: 'Source Sans Pro', sans-serif;
+    //   font-size: 11px;
+    //   font-weight: 300;
+    //   opacity: 0.6;
+    //   transition: all 300ms ease;
+    //   transition-property: opacity, font-size;
+    //   .active & {
+    //     opacity: 1;
+    //   }
+    // `
 
     // Only show on mobile
     if(isMobile) {
@@ -106,7 +104,7 @@ class BottomNav extends React.Component {
             to=""
           >
             <HomeIcon className={Icon} />
-            <LinkTitle>Home</LinkTitle>
+            {/* <LinkTitle>Home</LinkTitle> */}
           </MenuItem>
 
           <MenuItem
@@ -114,7 +112,7 @@ class BottomNav extends React.Component {
             to="/videos/"
           >
             <PlayIcon className={Icon} />
-            <LinkTitle>Videos</LinkTitle>
+            {/* <LinkTitle>Videos</LinkTitle> */}
           </MenuItem>
 
           <MenuItem
@@ -122,7 +120,7 @@ class BottomNav extends React.Component {
             to="/shows/"
           >
             <ShowsIcon className={Icon} />
-            <LinkTitle>Shows</LinkTitle>
+            {/* <LinkTitle>Shows</LinkTitle> */}
           </MenuItem>
 
           <MenuItem
@@ -130,7 +128,7 @@ class BottomNav extends React.Component {
             to="/news/"
           >
             <NewsIcon className={Icon} />
-            <LinkTitle>News</LinkTitle>
+            {/* <LinkTitle>News</LinkTitle> */}
           </MenuItem>
 
           <MenuItem
@@ -138,7 +136,7 @@ class BottomNav extends React.Component {
             to="/shop/"
           >
             <ShopIcon className={Icon} />
-            <LinkTitle>Shop</LinkTitle>
+            {/* <LinkTitle>Shop</LinkTitle> */}
           </MenuItem>
 
         </Nav>
