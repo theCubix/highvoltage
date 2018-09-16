@@ -1,9 +1,10 @@
 import React from 'react'
 import Slider from 'react-slick'
 
-import Heading from '../../components/heading'
+import Container from '../../components/Container'
+import { SectionTitle as Heading } from '../../components/Typography'
 import Video from '../../components/Video'
-import ButtonLink from '../../components/button-link'
+import ButtonLink from '../../components/ButtonLink'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -35,8 +36,12 @@ class Videos extends React.Component {
     }
     return(
       <>
-        <Heading title="Videos" letter="V" className="container" />
-        <div className="container container--slider margin-bottom--narrower">
+        <Container>
+          <Heading>Videos</Heading>
+        </Container>
+
+        <Container isSlider marginBottom="narrower">
+
           <Slider {...settings}> 
             {videos.map((video) => (
               <Video
@@ -47,11 +52,11 @@ class Videos extends React.Component {
               />
             ))}
           </Slider>
-        </div>
+        </Container>
 
-        <div className="container">
-          <ButtonLink dest="/videos/" className="z-1 margin-bottom--default btn-link--right">Alle Videos ansehen</ButtonLink>
-        </div>
+        <Container marginBottom="default">
+          <ButtonLink dest="/videos/" right>Alle Videos ansehen</ButtonLink>
+        </Container>
       </>
     )
   }

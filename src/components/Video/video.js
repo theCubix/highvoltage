@@ -7,7 +7,7 @@ import { MediaQueries as media } from '../../style-variables'
 
 // Components
 import Img from 'gatsby-image'
-import ButtonLink from '../button-link'
+import ButtonLink from '../ButtonLink'
 
 // Icon
 import { ReactComponent as PlayOutline } from '../../icons/play-outline.svg'
@@ -140,10 +140,7 @@ class Video extends React.Component {
       width: 100%;
     `
 
-    const Link = styled(ButtonLink)`
-      margin-top: 20px;
-      float: right;
-    `
+    const Link = styled(ButtonLink)`margin-top: 20px;`
 
     return(
       <Root>
@@ -181,7 +178,7 @@ class Video extends React.Component {
                   autoPlay
                   allowFullScreen></Iframe>
             </Wrapper>
-            <Link dest={`/video/${slug}/`}>Mehr Infos zum Video</Link>
+            <Link dest={`/video/${slug}/`} right>Mehr Infos zum Video</Link>
           </>
         }
       </Root>
