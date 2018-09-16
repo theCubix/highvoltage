@@ -6,7 +6,10 @@ import { MediaQueries as media } from '../../style-variables'
 import Img from 'gatsby-image'
 
 const Wrapper = styled(Img)`
+  height: 0!important;
   margin-bottom: 7.5em;
+  padding-top: 41.125%;
+  width: 100%!important;
   ${media.mobile} {
     margin-bottom: 2em;
   }
@@ -32,14 +35,8 @@ const HeroImage = ({data}) => (
     }
     render={data => (
       <Wrapper
-        style={{
-          width: "100%",
-          height: 0,
-          paddingTop: "41.125%"
-        }}
         resolutions={data.MainImage.childImageSharp.resolutions}
-        alt="Voltage Arc live auf der Bühne der Rockarena in Schaffhausen"
-      />
+        alt="Voltage Arc live auf der Bühne der Rockarena in Schaffhausen" />
     )}
     />
 )
