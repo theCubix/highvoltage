@@ -6,7 +6,7 @@ import { MediaQueries as media } from '../../style-variables'
 const H = styled('h1')`
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
 `
 
 const H1 = styled(H)`
@@ -17,7 +17,6 @@ const H1 = styled(H)`
   ${media.mobile} {
     font-size: 1.5em;
     line-height: 1.25em;
-    letter-spacing: 0.1em;
     margin-bottom: 30px;
   }
 `
@@ -81,8 +80,6 @@ class SubTitle extends React.Component {
       children
     } = this.props
 
-    
-
     const H2 = styled(H.withComponent('h2'))`
       font-size: 1.5em;
       line-height: 1.35em;
@@ -119,8 +116,8 @@ class Text extends React.Component {
     const P = styled('p')`
       color: ${ 
         importance === 'primary' ? '#ffffff' : 
-        importance === 'secondary' ? 'rgba(255, 255, 255, 0.5)' :
-        'rgba(255, 255, 255, 0.8)'
+        importance === 'secondary' ? 'rgba(255, 255, 255, 0.4)' :
+        'rgba(255, 255, 255, 0.6)'
       };
       font-family: 'Source Sans Pro', sans-serif;
       font-size: 1rem;
@@ -130,7 +127,6 @@ class Text extends React.Component {
         lineHeight === 'narrower' ? '1.2em' : 
         '1.618em'
       };
-      margin-top: 0;
       ${ noMarginBottom && 
         `margin-bottom: 0px;`
       }
