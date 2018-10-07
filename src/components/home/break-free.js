@@ -79,7 +79,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
        </Container>
 
-       <Container marginBottom="default">
+       <Container marginBottom="default" zIndex="2">
 
           <SubTitle>Erhältlich bei</SubTitle>
 
