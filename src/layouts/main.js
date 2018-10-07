@@ -1,13 +1,29 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import styled, { injectGlobal } from 'react-emotion'
 
-import Header from '../components/header'
+import Header from '../components/Header'
 import BottomNav from '../components/BottomNav'
+
+import { Colours as colours } from '../style-variables'
 
 import '../layout.scss'
 
+injectGlobal`
+  body {
+    background-color: ${colours.bgPrimary};
+    color: #ffffff;
+    font-size: 16px;
+    margin: 0;
+  }
+`
+
+const Wrapper = styled('main')`
+  padding-top: 49px;
+  overflow: auto;
+`
 
 const Main = ({ children, data }) => (
   <StaticQuery
@@ -35,9 +51,9 @@ const Main = ({ children, data }) => (
 
         <Header siteTitle={data.site.siteMetadata.title} />
 
-        <div className="dark-background padding-top-header">
+        <Wrapper>
           {children}
-        </div>
+        </Wrapper>
 
         <BottomNav />
 
