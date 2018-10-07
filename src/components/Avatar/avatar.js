@@ -22,7 +22,7 @@ class Avatar extends React.Component {
     `
 
     const Title = styled('h3')`
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Source Sans Pro', sans-serif;
       font-size: 1.5em;
       font-weight: 700;
       line-height: 1.618rem;
