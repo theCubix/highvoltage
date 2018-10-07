@@ -7,7 +7,6 @@ import { MediaQueries as media } from '../../style-variables'
 
 // Components
 import Img from 'gatsby-image'
-import ButtonLink from '../ButtonLink'
 
 // Icon
 import { ReactComponent as PlayOutline } from '../../icons/play-outline.svg'
@@ -28,7 +27,6 @@ class Video extends React.Component {
     } = this.props
 
     const {
-      slug,
       title,
       youTubeId,
       thumbnail
@@ -45,7 +43,7 @@ class Video extends React.Component {
       display: block;
       overflow: hidden;
       position: relative;
-      border-radius: ${ this.state.iframeActive ? '3px 3px 0 0' : '3px' };
+      border-radius: 3px;
       ${media.mobile} {
         margin: 0px;
         border-radius: ${ roundedMobile ? '3px' : '0' };
@@ -140,8 +138,6 @@ class Video extends React.Component {
       width: 100%;
     `
 
-    const Link = styled(ButtonLink)`margin-top: 20px;`
-
     return(
       <Root>
         { this.state.iframeActive === false ?
@@ -149,7 +145,8 @@ class Video extends React.Component {
             onClick={() => this.setState({
               iframeActive: true
             })}
-          >
+            >
+
             <Title>{title}</Title>
     
             <IconWrapper>
@@ -166,20 +163,17 @@ class Video extends React.Component {
     
           </Wrapper>
           :
-          <>
-            <Wrapper>
-              <Iframe
-                  title={title}
-                  width="560"
-                  height="315"
-                  src={url}
-                  frameBorder="0"
-                  allow="autoplay; encrypted-media"
-                  autoPlay
-                  allowFullScreen></Iframe>
-            </Wrapper>
-            <Link dest={`/video/${slug}/`} right>Mehr Infos zum Video</Link>
-          </>
+          <Wrapper>
+            <Iframe
+                title={title}
+                width="560"
+                height="315"
+                src={url}
+                frameBorder="0"
+                allow="autoplay; encrypted-media"
+                autoPlay
+                allowFullScreen></Iframe>
+          </Wrapper>
         }
       </Root>
     )
