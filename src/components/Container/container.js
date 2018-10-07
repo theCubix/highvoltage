@@ -5,14 +5,20 @@ import { MediaQueries as media } from '../../style-variables'
 
 class Container extends React.Component {
   render() {
-    const children = this.props.children
-    const video = this.props.video
-    const marginBottom = this.props.marginBottom
+    const {
+      children,
+      video,
+      marginBottom,
+      zIndex
+    } = this.props
 
     const Wrapper = styled('div')`
       margin: 0 auto;
       max-width: 780px;
       position: relative;
+      z-index: ${
+        zIndex ? zIndex : '1'
+      };
       ${media.mobile} {
         padding-left: ${ video ? '0' : '16px' };
         padding-right: ${ video ? '0' : '16px' };
