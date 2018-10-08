@@ -106,7 +106,7 @@ class Header extends React.Component {
       return (
         <AppHeader>
           <Container>
-            <Title>{siteTitle}</Title>
+            <Title to="/">{siteTitle}</Title>
           </Container>
         </AppHeader>
       )
@@ -118,9 +118,9 @@ class Header extends React.Component {
             
             <Nav>
               <Ul>
+                <Li><NavLink activeClassName="active" to="/shows/">Shows</NavLink></Li>
                 <Li><NavLink activeClassName="active" to="/videos/">Videos</NavLink></Li>
                 <Li><NavLink activeClassName="active" to="/gallery/">Gallery</NavLink></Li>
-                <Li><NavLink activeClassName="active" to="/events/">Events</NavLink></Li>
                 <Li><NavLink activeClassName="active" to="/news/">News</NavLink></Li>
                 <Li><NavLink activeClassName="active" to="/shop/">Shop</NavLink></Li>
               </Ul>
