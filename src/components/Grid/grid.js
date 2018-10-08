@@ -5,8 +5,10 @@ import { MediaQueries } from '../../style-variables'
 
 class Grid extends React.Component {
   render() {
-    const children = this.props.children
-    const columns = this.props.columns
+    const {
+      children,
+      columns
+    } = this.props
 
     const Wrapper = styled('div')`
       display: grid;
