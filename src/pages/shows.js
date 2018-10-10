@@ -6,6 +6,7 @@ import Container from '../components/Container'
 import { SubTitle as Title } from '../components/Typography'
 
 import Show from '../components/Show'
+import Grid from '../components/Grid'
 
 class ShowPage extends React.Component {
   render() {
@@ -18,12 +19,14 @@ class ShowPage extends React.Component {
       
         <Title>Shows</Title>
 
-        {shows.map((show) => (
-          <Show
-            key={show.id}
-            show={show}
-          />
-        ))}
+        <Grid columns={2}>
+          {shows.map((show) => (
+            <Show
+              key={show.id}
+              show={show}
+            />
+          ))}
+        </Grid>
 
         </Container>
       </Layout>
@@ -38,13 +41,17 @@ export const ShowQuery = graphql`
     allContentfulEvent {
       edges {
         node {
-          title,
-          slug,
-          daysPast: doors(difference: "days"),
-          doors(formatString: "H:mm"),
-          startsAt(formatString: "H:mm"),
-          price,
+          title
+          slug
+          daysPast: doors(difference: "days")
+          date: doors(formatString: "D. MMMM YYYY", locale:"de")
+          doors(formatString: "H:mm")
+          startsAt(formatString: "H:mm")
+          price
           venue
+          zipCode
+          city
+          canton
         }
       }
     }
