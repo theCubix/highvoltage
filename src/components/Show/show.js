@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'react-emotion'
 
-import { RoundedCorners as rounded, Colours as colours } from '../../style-variables'
+import { RoundedCorners as rounded, Colours as colours, MediaQueries as media } from '../../style-variables'
 
 import { TextBase } from '../Typography'
 
@@ -31,6 +31,9 @@ class Show extends React.Component {
     const Body = styled('div')`
       padding: 40px 40px 20px 40px;
       background-color: ${ upcoming ? colours.accentDark : colours.bgLighter };
+      ${media.mobile} {
+        padding: 20px 20px 10px 20px;
+      }
     `
 
     const Date = styled('h2')`
