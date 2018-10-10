@@ -1,24 +1,15 @@
 import React from 'react'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 
 import { MediaQueries as media } from '../../style-variables'
 
-const H = styled('h1')`
+
+//Everything Heading
+
+const TitleBase = css`
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   letter-spacing: 0.1em;
-`
-
-const H1 = styled(H)`
-  font-size: 2rem;
-  line-height: 2rem;
-  margin-bottom: 5rem;
-  text-transform: uppercase;
-  ${media.mobile} {
-    font-size: 1.5em;
-    line-height: 1.25em;
-    margin-bottom: 30px;
-  }
 `
 
 class SectionTitle extends React.Component {
@@ -27,7 +18,7 @@ class SectionTitle extends React.Component {
       children
     } = this.props
 
-    const Wrapper = styled(H1)`
+    const Wrapper = styled(MainTitle)`
       position: relative;
     `
 
@@ -61,46 +52,39 @@ class SectionTitle extends React.Component {
   }
 }
 
-class MainTitle extends React.Component {
-  render() {
-    const {
-      children
-    } = this.props
-    return(
-      <H1>
-        {children}
-      </H1>
-    )
+const MainTitle = styled('h1')`
+  ${TitleBase};
+  font-size: 2rem;
+  line-height: 2rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+  ${media.mobile} {
+    font-size: 1.5em;
+    line-height: 1.25em;
+    margin-bottom: 30px;
   }
-}
+`
 
-class SubTitle extends React.Component {
-  render() {
-    const {
-      children
-    } = this.props
-
-    const H2 = styled(H.withComponent('h2'))`
-      font-size: 1.5em;
-      line-height: 1.35em;
-      margin-bottom: 1.5em;
-      text-transform: uppercase;
-      ${media.mobile} {
-        font-size: 1.2em;
-        line-height: 1.25em;
-        letter-spacing: 0;
-        margin-bottom: 1.275em;
-        text-transform: none;
-      }
-    `
-
-    return(
-      <H2>
-        {children}
-      </H2>
-    )
+const SubTitle = styled('h2')`
+  ${TitleBase};
+  font-size: 1.5em;
+  line-height: 1.35em;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+  ${media.mobile} {
+    font-size: 1.2em;
+    line-height: 1.25em;
+    letter-spacing: 0;
+    margin-bottom: 1.275em;
+    text-transform: none;
   }
-}
+`
+
+//Everything regular text
+
+const TextBase = css`
+  font-family: 'Source Sans Pro', sans-serif;
+`
 
 class Text extends React.Component {
   render() {
@@ -110,16 +94,13 @@ class Text extends React.Component {
       importance,
       lineHeight,
       noMarginBottom,
-      justified
+      justified,
+      color
     } = this.props
 
     const P = styled('p')`
-      color: ${ 
-        importance === 'primary' ? '#ffffff' : 
-        importance === 'secondary' ? 'rgba(255, 255, 255, 0.4)' :
-        'rgba(255, 255, 255, 0.6)'
-      };
-      font-family: 'Source Sans Pro', sans-serif;
+      ${TextBase};
+      color: ${color};
       font-size: 1rem;
       font-weight: 400;
       line-height: ${
@@ -130,6 +111,11 @@ class Text extends React.Component {
       ${ noMarginBottom && 
         `margin-bottom: 0px;`
       }
+      opacity: ${
+        importance === 'primary' ? '1' :
+        importance === 'secondary' ? '0.4' :
+        '0.6'
+      };
       text-rendering: optimizeLegibility;
       ${ justified && 
         `
@@ -164,6 +150,8 @@ class Text extends React.Component {
 }
 
 export {
+  TitleBase,
+  TextBase,
   SectionTitle,
   MainTitle,
   SubTitle,
