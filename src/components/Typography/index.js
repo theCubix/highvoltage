@@ -1,3 +1,17 @@
-import { SectionTitle, MainTitle, SubTitle, Text } from './typography'
+import {
+  TitleBase,
+  TextBase,
+  SectionTitle,
+  MainTitle,
+  SubTitle,
+  Text
+} from './typography'
 
-export { SectionTitle, MainTitle, SubTitle, Text }
+export {
+  TitleBase,
+  TextBase,
+  SectionTitle,
+  MainTitle,
+  SubTitle,
+  Text
+}
