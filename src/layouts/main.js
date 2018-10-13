@@ -14,6 +14,7 @@ import '../layout.scss'
 injectGlobal`
   body {
     background-color: ${colours.bgPrimary};
+    box-sizing: border-box;
     color: #ffffff;
     font-size: 16px;
     margin: 0;
@@ -21,6 +22,7 @@ injectGlobal`
 `
 
 const Wrapper = styled('main')`
+  padding-bottom: 100px;
   padding-top: 49px;
   overflow: auto;
 `
