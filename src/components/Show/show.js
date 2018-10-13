@@ -14,8 +14,8 @@ class Show extends React.Component {
       title,
       slug,
       date,
-      upcoming,
       doors,
+      daysPast,
       startsAt,
       price,
       venue,
@@ -24,31 +24,43 @@ class Show extends React.Component {
       canton
     } = this.props.show
 
+    upcoming = this.props.upcoming
+
     const Card = styled('div')`
       ${rounded};
+      height: fit-content;
     `
 
     const Body = styled('div')`
-      padding: 40px 40px 20px 40px;
+      padding: 40px 40px 30px 40px;
       background-color: ${ upcoming ? colours.accentDark : colours.bgLighter };
       ${media.mobile} {
-        padding: 20px 20px 10px 20px;
+        padding: 30px 30px 25px 30px;
       }
     `
 
-    const Date = styled('h2')`
+    const Date = styled('p')`
       ${TextBase};
       font-size: 1.5em;
       font-weight: 700;
       margin: 0 0 12px 0;
       opacity: 0.7;
+      ${media.mobile} {
+        font-size: 0.9em;
+        margin-bottom: 8px;
+      }
     `
 
-    const Title = styled('p')`
+    const Title = styled('h2')`
       ${TextBase};
       font-size: 2.125em;
       font-weight: 400;
       margin: 0 0 8px 0;
+      ${media.mobile} {
+        font-size: 1.8em;
+        line-height: 1.2em;
+        margin-bottom: 4px;
+      }
     `
 
     const Hours = styled('p')`
@@ -57,6 +69,9 @@ class Show extends React.Component {
       font-weight: 400;
       margin: 0 0 32px 0;
       opacity: 0.5;
+      ${media.mobile} {
+        font-size: 0.9em;
+      }
     `
 
     const IconBase = css`
@@ -79,7 +94,33 @@ class Show extends React.Component {
       font-weight: 700;
     `
 
-    // const upcoming = parseInt(daysPast) <= 0 ? true : false
+    const Footer = styled('div')`
+      background-color: ${ upcoming ? colours.accentDarker : colours.bgLightest };
+      display: flex;
+      padding: ${ price === 0 ? '20px 40px' : '13px 20px' };
+      ${media.mobile} {
+        padding: ${ price === 0 ? '15px 30px' : '8px 10px' };
+      }
+    `
+
+    const Price = styled('p')`
+      ${TextBase};
+      margin: 0;
+    `
+
+    const PriceLink = styled(Price.withComponent('a'))`
+      ${rounded};
+      background-color: transparent;
+      color: ${colours.basePrimary};
+      display: inline-block;
+      padding: 7px 21px;
+      transition: background-color 300ms ease;
+      text-decoration: none;
+      :hover {
+        background-color: ${ upcoming ? colours.accentDark : colours.bgLighter };
+      }
+    `
+
     return (
       <Card>
         <Body>
@@ -98,10 +139,17 @@ class Show extends React.Component {
           <div>
             <StyledDollarIcon />
             <Details>
-              <Bold>{ price === 0 ? 'Gratis' : `${price} CHF` }</Bold>
+              <Bold>{ price === '0' ? 'Gratis' : `${price} CHF` }</Bold>
             </Details>
           </div>
         </Body>
+        <Footer>
+          { price === 0 ?
+            <Price>Eintritt frei</Price>
+            :
+            <PriceLink href="https://ticketcorner.ch/">Tickets</PriceLink>
+          }
+        </Footer>
       </Card>
     )
   }
