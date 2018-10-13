@@ -13,22 +13,38 @@ class ShowPage extends React.Component {
     let { allContentfulEvent } = this.props.data
     const shows = allContentfulEvent.edges.map(e => e.node)
 
+    const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0);
+    const past = shows.filter(show => parseInt(show.daysPast) > 0);
+
     return (
       <Layout>
-        <Container>
-      
-        <Title>Shows</Title>
 
-        <Grid columns={2}>
-          {shows.map((show) => (
-            <Show
-              key={show.id}
-              show={show}
-            />
-          ))}
-        </Grid>
-
+        <Container marginBottom="narrower">
+          <Title>Bevorstehende Shows</Title>
+          <Grid columns={2}>
+            {upcoming.map((show) => (
+              <Show
+                key={show.id}
+                show={show}
+                upcoming={true}
+              />
+            ))}
+          </Grid>
         </Container>
+
+        <Container>
+          <Title>Vergangene Shows</Title>
+          <Grid columns={2}>
+            {past.map((show) => (
+              <Show
+                key={show.id}
+                show={show}
+                upcoming={false}
+              />
+            ))}
+          </Grid>
+        </Container>
+
       </Layout>
     )
   }
@@ -38,7 +54,7 @@ export default ShowPage
 
 export const ShowQuery = graphql`
   query {
-    allContentfulEvent {
+    allContentfulEvent(sort: { fields: doors }) {
       edges {
         node {
           title
