@@ -8,6 +8,7 @@ import HeroImage from '../components/home/hero-main'
 import MusicIsOurLife from '../components/home/music-is-our-live'
 import BreakFree from '../components/home/break-free'
 import Videos from '../components/home/videos'
+import Events from '../components/home/events'
 
 import Layout from '../layouts/main'
 
@@ -23,6 +24,10 @@ class Index extends React.Component {
     //Prepare allContentfulVideo for usage in component
     let { allContentfulVideo } = this.props.data
     const videos = allContentfulVideo.edges.map(e => e.node)
+
+    let { allContentfulEvent } = this.props.data
+    const shows = allContentfulEvent.edges.map(e => e.node)
+    const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0)
 
     return (
       <Layout location={this.props.location}>
@@ -46,6 +51,7 @@ class Index extends React.Component {
         <MusicIsOurLife />
         <BreakFree />
         <Videos videos={videos} />
+        <Events shows={upcoming} />
       </Layout>
     )
   }
@@ -67,6 +73,23 @@ export const pageQuery = graphql`
               ...GatsbyContentfulFixed_tracedSVG
             }
           }
+        }
+      }
+    }
+    allContentfulEvent(sort: { fields: doors }) {
+      edges {
+        node {
+          title
+          slug
+          daysPast: doors(difference: "days")
+          date: doors(formatString: "D. MMMM YYYY", locale:"de")
+          doors(formatString: "H:mm")
+          startsAt(formatString: "H:mm")
+          price
+          venue
+          zipCode
+          city
+          canton
         }
       }
     }

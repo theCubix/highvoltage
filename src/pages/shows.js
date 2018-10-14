@@ -13,8 +13,8 @@ class ShowPage extends React.Component {
     let { allContentfulEvent } = this.props.data
     const shows = allContentfulEvent.edges.map(e => e.node)
 
-    const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0);
-    const past = shows.filter(show => parseInt(show.daysPast) > 0);
+    const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0)
+    const past = shows.filter(show => parseInt(show.daysPast) > 0)
 
     return (
       <Layout>
