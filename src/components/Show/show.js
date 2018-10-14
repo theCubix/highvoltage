@@ -1,8 +1,8 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled, { css } from 'react-emotion'
 
 import { RoundedCorners as rounded, Colours as colours, MediaQueries as media } from '../../style-variables'
-
 import { TextBase } from '../Typography'
 
 import { ReactComponent as LocationIcon } from '../../icons/location.svg'
@@ -15,7 +15,6 @@ class Show extends React.Component {
       slug,
       date,
       doors,
-      daysPast,
       startsAt,
       price,
       venue,
@@ -49,6 +48,12 @@ class Show extends React.Component {
         font-size: 0.9em;
         margin-bottom: 8px;
       }
+    `
+
+    const TitleLink = styled(Link)`
+      ${TextBase};
+      color: ${colours.basePrimary};
+      text-decoration: none;
     `
 
     const Title = styled('h2')`
@@ -125,7 +130,9 @@ class Show extends React.Component {
       <Card>
         <Body>
           <Date>{date}</Date>
-          <Title>{title}</Title>
+          <TitleLink to={slug}>
+            <Title>{title}</Title>
+          </TitleLink>
           <Hours>{startsAt} Uhr &bull; Türöffnung um {doors} Uhr</Hours>
 
           <div className={css`margin-bottom: 18px;`}>
