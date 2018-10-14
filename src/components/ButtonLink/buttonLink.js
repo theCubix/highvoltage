@@ -18,7 +18,12 @@ class ButtonLink extends React.Component {
 
     const Wrapper = styled('div')`
       height: 42px;
-      ${ inline && `display: inline-block` };
+      ${media.tablet} {
+        ${ inline && `display: inline-block` };
+      }
+      ${media.desktop} {
+        ${ inline && `display: inline-block` };
+      }
     `
 
     const SimpleLink = styled(Link)`
