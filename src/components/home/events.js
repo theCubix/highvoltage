@@ -14,7 +14,7 @@ class Event extends React.Component {
     return (
       <>
         <Container>
-          <Heading>Break Free &ndash; unsere erste EP</Heading>
+          <Heading>Bevorstehende Shows</Heading>
         </Container>
 
         <Container marginBottom="narrow">
