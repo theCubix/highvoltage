@@ -98,7 +98,7 @@ class News extends React.Component {
           {entries.slice(1).map((entry, index) => (
             <EntryWrapper>
               <Link to={entry.slug}><EntryImage fluid={entry.cover.fluid} /></Link>
-              <EntryContent>
+              <EntryContent to={entry.slug}>
                 <EntryDate>{entry.createdAt}</EntryDate>
                 <EntryTitle>{entry.title}</EntryTitle>
                 <Text>
