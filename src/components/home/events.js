@@ -9,7 +9,6 @@ import Show from '../Show'
 class Event extends React.Component {
   render() {
     const upcoming = this.props.shows
-    console.log(upcoming)
 
     return (
       <>
@@ -19,9 +18,9 @@ class Event extends React.Component {
 
         <Container marginBottom="narrow">
           <Grid columns={2}>
-            {upcoming.map((show) => (
+            {upcoming.map((show, index) => (
               <Show
-                key={show.id}
+                key={index}
                 show={show}
                 upcoming={true}
               />

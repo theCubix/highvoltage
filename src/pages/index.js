@@ -9,6 +9,7 @@ import MusicIsOurLife from '../components/home/music-is-our-live'
 import BreakFree from '../components/home/break-free'
 import Videos from '../components/home/videos'
 import Events from '../components/home/events'
+import News from '../components/home/news'
 
 import Layout from '../layouts/main'
 
@@ -28,6 +29,9 @@ class Index extends React.Component {
     let { allContentfulEvent } = this.props.data
     const shows = allContentfulEvent.edges.map(e => e.node)
     const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0)
+
+    let { allContentfulBlogEntry } = this.props.data
+    const blogEntries = allContentfulBlogEntry.edges.map(e => e.node)
 
     return (
       <Layout location={this.props.location}>
@@ -52,6 +56,7 @@ class Index extends React.Component {
         <BreakFree />
         <Videos videos={videos} />
         <Events shows={upcoming} />
+        <News entries={blogEntries} />
       </Layout>
     )
   }
@@ -90,6 +95,32 @@ export const pageQuery = graphql`
           zipCode
           city
           canton
+        }
+      }
+    }
+    allContentfulBlogEntry(limit: 4) {
+      edges {
+        node {
+          title
+          slug
+          cover {
+            fluid {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+            }
+          }
+          body {
+            childMarkdownRemark {
+              excerpt(pruneLength: 250)
+            }
+          }
+          createdAt(formatString: "D. MMMM YYYY", locale:"DE")
         }
       }
     }
