@@ -12,8 +12,14 @@ class ButtonLink extends React.Component {
       simple,
       outbound,
       children,
-      right
+      right,
+      inline
     } = this.props
+
+    const Wrapper = styled('div')`
+      height: 42px;
+      ${ inline && `display: inline-block` };
+    `
 
     const SimpleLink = styled(Link)`
       ${rounded};
@@ -107,35 +113,43 @@ class ButtonLink extends React.Component {
 
     if(!outbound && !simple) {
       return(
-        <FancyLink to={dest}>
-          <Text>{children}</Text><StyledArrowIcon />
-          <Backdrop />
-        </FancyLink>
+        <Wrapper>
+          <FancyLink to={dest}>
+            <Text>{children}</Text><StyledArrowIcon />
+            <Backdrop />
+          </FancyLink>
+        </Wrapper>
       )
     }
 
     if(outbound && !simple) {
       return(
-        <FancyAnchor href={dest}>
-          <Text>{children}</Text><StyledArrowIcon />
-          <Backdrop />
-        </FancyAnchor>
+        <Wrapper>
+          <FancyAnchor href={dest}>
+            <Text>{children}</Text><StyledArrowIcon />
+            <Backdrop />
+          </FancyAnchor>
+        </Wrapper>
       )
     }
 
     if(!outbound && simple) {
       return(
-        <SimpleLink to={dest}>
-          {children}
-        </SimpleLink>
+        <Wrapper>
+          <SimpleLink to={dest}>
+            {children}
+          </SimpleLink>
+        </Wrapper>
       )
     }
 
     else {
       return(
-        <SimpleAnchor href={dest}>
-          {children}
-        </SimpleAnchor>
+        <Wrapper>
+          <SimpleAnchor href={dest}>
+            {children}
+          </SimpleAnchor>
+        </Wrapper>
       )
     }
   }

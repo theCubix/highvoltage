@@ -88,7 +88,8 @@ const MusicIsOurLife = ({ siteTitle }) => (
               key={link.id}
               dest={link.url}
               simple
-              outbound>
+              outbound
+              inline>
               {link.title}
             </ButtonLink>
           ))}
