@@ -24,7 +24,7 @@ class Show extends React.Component {
       canton
     } = this.props.show
 
-    upcoming = this.props.upcoming
+    const upcoming = this.props.upcoming
 
     const Card = styled('div')`
       ${rounded};
