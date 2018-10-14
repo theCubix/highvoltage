@@ -96,7 +96,7 @@ class News extends React.Component {
       padding: 0 30px;
       text-decoration: none;
       ${media.mobile} {
-        padding: 30px 0;
+        padding: 30px 15px;
       }
     `
 
