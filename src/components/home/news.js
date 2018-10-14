@@ -5,7 +5,7 @@ import Img from 'gatsby-image'
 
 import Container from '../Container'
 import { SectionTitle as Title, TextBase, Text } from '../Typography'
-import { RoundedCorners as rounded, Colours as colours } from '../../style-variables'
+import { RoundedCorners as rounded, Colours as colours, MediaQueries as media } from '../../style-variables'
 
 
 class News extends React.Component {
@@ -14,7 +14,12 @@ class News extends React.Component {
     const heroEntry = entries[0]
 
     const HeroImage = styled(Img)`
-      ${rounded};
+      ${media.tablet} {
+        ${rounded};
+      }
+      ${media.desktop} {
+        ${rounded};
+      }
       & > div {
         padding-bottom: 56.25%!important;
       }
@@ -22,15 +27,22 @@ class News extends React.Component {
 
     const HeroWrapper = styled(Link)`
       ${TextBase};
+      color: ${colours.basePrimary};
       display: block;
       margin: 40px;
       text-decoration: none;
-      color: ${colours.basePrimary};
+      ${media.mobile} {
+        margin: 30px 16px 80px 16px;
+      }
     `
     const HeroDate = styled('p')`
       font-size: 1.25em;
       margin: 0;
       opacity: 0.6;
+      ${media.mobile} {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+      }
     `
 
     const HeroTitle = styled('h2')`
@@ -41,23 +53,40 @@ class News extends React.Component {
       ${HeroWrapper}:hover & {
         text-decoration: underline;
       }
+      ${media.mobile} {
+        font-size: 1.6em;
+        line-height: 1.4em;
+      }
     `
 
     const EntryWrapper = styled('div')`
       display: flex;
       margin-bottom: 40px;
+      ${media.mobile} {
+        display: block;
+      }
     `
 
     const EntryImage = styled(Img)`
       ${rounded};
       height: 200px;
       width: 200px;
+      ${media.mobile} {
+        height: 160px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        width: 100%;
+      }
     `
 
     const EntryDate = styled('p')`
       font-size: 1.1em;
       margin: 0;
       opacity: 0.6;
+      ${media.mobile} {
+        margin-bottom: 10px;
+      }
     `
 
     const EntryContent = styled(Link)`
@@ -66,6 +95,9 @@ class News extends React.Component {
       display: block;
       padding: 0 30px;
       text-decoration: none;
+      ${media.mobile} {
+        padding: 30px 0;
+      }
     `
 
     const EntryTitle = styled('h2')`

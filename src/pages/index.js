@@ -98,7 +98,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulBlogEntry(limit: 4) {
+    allContentfulBlogEntry(limit: 3) {
       edges {
         node {
           title
