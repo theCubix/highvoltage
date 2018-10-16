@@ -59,8 +59,8 @@ class Header extends React.Component {
       letter-spacing: 0.05em;
       line-height: 17px;
       padding: 16px 0;
-      text-transform: uppercase;
       text-decoration: none;
+      text-transform: uppercase;
     `
 
     const Nav = styled('nav')`
@@ -114,6 +114,7 @@ class Header extends React.Component {
       return(
         <AppHeader>
           <Container>
+
             <Title to="/">{siteTitle}</Title>
             
             <Nav>
