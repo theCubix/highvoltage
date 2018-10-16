@@ -29,10 +29,8 @@ class VideoTemplate extends React.Component {
                 "name": "Voltage Arc",
                 "logo": {
                   "@type": "ImageObject",
-                  "url": "https://images.ctfassets.net/7dnxtb8wlc24/1iD3jSdBiuaW6YGkAKksiW/c0222acd2f7f176ef6b2624e00f5e28c/shortcut-chrom-schwarz.jpeg?w=200&q=100&fm=jpg",
-                  "width": 200,
-                  "height": 200,
-                },
+                  "url": "https://images.ctfassets.net/7dnxtb8wlc24/1iD3jSdBiuaW6YGkAKksiW/c0222acd2f7f176ef6b2624e00f5e28c/shortcut-chrom-schwarz.jpeg?w=200&q=100&fm=jpg"
+                }
               },
               "contentUrl": "https://www.youtube.com/embed/${this.props.data.contentfulVideo.youTubeId}"
             }`
