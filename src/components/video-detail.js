@@ -82,9 +82,17 @@ export const videoDetailFragment = graphql`
     id
     title
     youTubeId
+    slug
+    createdAt
     description {
       childMarkdownRemark {
         html
+        excerpt(pruneLength: 300)
+      }
+    }
+    thumbnail {
+      fixed(width: 400, quality: 80, toFormat: JPG) {
+        src
       }
     }
   }
