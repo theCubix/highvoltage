@@ -79,7 +79,7 @@ export default VideosPage
 
 export const videoPageQuery = graphql`
   query {
-    allContentfulVideo {
+    allContentfulVideo(sort: {fields: createdAt}) {
       edges {
         node {
           slug
