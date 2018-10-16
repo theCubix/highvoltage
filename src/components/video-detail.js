@@ -1,5 +1,39 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import styled, { css } from 'react-emotion'
+
+import { RoundedCorners as rounded, MediaQueries as media } from '../style-variables'
+import { SubTitle as Title, TextBase } from './Typography'
+
+import Container from './Container'
+
+const Video = styled('div')`
+  ${rounded};
+  margin-top: 30px;
+  padding-top: 56.25%;
+  position: relative;
+  width: 100%;
+  ${media.mobile} {
+    border-radius: 0;
+    margin-top: 0;
+  }
+`
+
+const VideoContent = css`
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+`
+
+const Text = css`
+  ${TextBase};
+  line-height: 1.618em;
+  opacity: 0.6;
+`
 
 class VideoDetail extends React.Component {
   render() {
@@ -12,9 +46,9 @@ class VideoDetail extends React.Component {
     const url = `https://www.youtube.com/embed/${youTubeId}?showinfo=0`
 
     return(
-      <div>
-        <div className="container container--video margin-bottom--narrow">
-          <div className="embedded-video rounded-corners">
+      <>
+        <Container video>
+          <Video>
             <iframe
               title={title}
               width="560"
@@ -23,20 +57,20 @@ class VideoDetail extends React.Component {
               frameBorder="0"
               allow="autoplay; encrypted-media"
               allowFullScreen
-              className="embedded-video__content"></iframe>
-          </div>
-        </div>
-        <div className="container">
-        <h2 className="heading heading--level-2">{title}</h2>
-        <div
-          className="text text--justified"
-          dangerouslySetInnerHTML={{
-            __html: description.childMarkdownRemark.html
-          }}
-        />
-          
-        </div>
-      </div>
+              className={VideoContent}></iframe>
+          </Video>
+        </Container>
+        <Container>
+          <Title>{title}</Title>
+          <div
+            className={Text}
+            dangerouslySetInnerHTML={{
+              __html: description.childMarkdownRemark.html
+            }}
+          />
+
+        </Container>
+      </>
     )
   }
 }

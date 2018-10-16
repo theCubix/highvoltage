@@ -17,11 +17,12 @@ class ButtonLink extends React.Component {
     } = this.props
 
     const Wrapper = styled('div')`
-      height: 42px;
       ${media.tablet} {
+        height: 42px;
         ${ inline && `display: inline-block` };
       }
       ${media.desktop} {
+        height: 42px;
         ${ inline && `display: inline-block` };
       }
     `
