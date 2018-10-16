@@ -34,7 +34,7 @@ class VideoTemplate extends React.Component {
                   "height": 100
                 }
               },
-              "contentUrl": "https://www.youtube.com/embed/${youTubeId}"
+              "contentUrl": "https://www.youtube.com/embed/${this.props.data.contentfulVideo.youTubeId}"
             }`
           }]} />
         <VideoDetail video={this.props.data.contentfulVideo} />
