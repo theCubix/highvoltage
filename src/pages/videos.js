@@ -65,7 +65,7 @@ const VideosPage = ({ data }) => (
             <Thumbnail fluid={node.thumbnail.fluid} />
           </ThumbnailWrapper>
 
-          <ContentWrapper>
+          <ContentWrapper to={`/videos/${node.slug}`}>
             <VideoTitle>{node.title}</VideoTitle>
           </ContentWrapper>
         </VideoItem>
