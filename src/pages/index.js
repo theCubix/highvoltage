@@ -23,14 +23,16 @@ class Index extends React.Component {
 
   render() {
     //Prepare allContentfulVideo for usage in component
-    let { allContentfulVideo } = this.props.data
+    let { 
+      allContentfulVideo,
+      allContentfulEvent,
+      allContentfulBlogEntry
+    } = this.props.data
     const videos = allContentfulVideo.edges.map(e => e.node)
-
-    let { allContentfulEvent } = this.props.data
+    
     const shows = allContentfulEvent.edges.map(e => e.node)
     const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0)
 
-    let { allContentfulBlogEntry } = this.props.data
     const blogEntries = allContentfulBlogEntry.edges.map(e => e.node)
 
     return (
