@@ -137,7 +137,7 @@ const H2 = styled('h2')`
   ${SharedHeadingBold};
   color: ${colours.text.muted};
   font-size: 1.875em;
-  line-height: 2.25em;
+  line-height: 1.1em;
   letter-spacing: 0.1em;
 `
 
