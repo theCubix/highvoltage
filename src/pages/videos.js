@@ -7,7 +7,7 @@ import Img from 'gatsby-image'
 import { MediaQueries as media, Colours as colours, RoundedCorners as rounded } from '../style-variables'
 
 import Container from '../components/Container'
-import { SubTitle as Title, TextBase } from '../components/Typography'
+import { H3, TextBase } from '../components/Typography'
 
 const VideoItem = styled('div')``
 
@@ -57,8 +57,8 @@ const VideosPage = ({ data }) => (
   <Layout>
     <Container>
       
-      <Title>Videos</Title>
-      
+      <H3>Videos</H3>
+
       {data.allContentfulVideo.edges.map(({ node }, index) => (
         <VideoItem id={node.slug}>
           <ThumbnailWrapper key={index} to={`/videos/${node.slug}`}>
