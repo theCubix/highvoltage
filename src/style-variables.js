@@ -26,4 +26,23 @@ const Colours = {
   accentDarker: '#C02828'
 }
 
-export { BreakPoints, MediaQueries, RoundedCorners, Colours }
+const refacturedColours = {
+  text: {
+    primary: 'rgba(255, 255, 255, 0.9)',
+    muted: 'rgba(255, 255, 255, 0.75)',
+    body: 'rgba(255, 255, 255, 0.55)',
+    secondary: 'rgba(255, 255, 255, 0.5)'
+  },
+  brand: {
+    vibrant: '#AE4444',
+    muted: '#943A3A',
+    dark: '#6E2B2B'
+  },
+  background: {
+    dark: '#505050',
+    darker: '#303030',
+    darkest: '#101010'
+  }
+}
+
+export { BreakPoints, MediaQueries, RoundedCorners, Colours, refacturedColours }
