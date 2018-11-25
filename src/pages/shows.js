@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../layouts/main'
 
 import Container from '../components/Container'
-import { SubTitle as Title } from '../components/Typography'
+import { H3 } from '../components/Typography'
 
 import Show from '../components/Show'
 import Grid from '../components/Grid'
@@ -16,24 +16,29 @@ class ShowPage extends React.Component {
     const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0)
     const past = shows.filter(show => parseInt(show.daysPast) > 0)
 
+console.log(upcoming)
+
     return (
       <Layout>
 
         <Container marginBottom="narrower">
-          <Title>Bevorstehende Shows</Title>
-          <Grid columns={2}>
-            {upcoming.map((show) => (
-              <Show
-                key={show.id}
-                show={show}
-                upcoming={true}
-              />
-            ))}
-          </Grid>
+          <H3>Bevorstehende Shows</H3>
+          { past ? typeof past !== 'undefined' && past.length > 0 && <span>keine bevorstehenden shows</span>
+          :
+            <Grid columns={2}>
+              {upcoming.map((show) => (
+                <Show
+                  key={show.id}
+                  show={show}
+                  upcoming={true}
+                />
+              ))}
+            </Grid>
+          }
         </Container>
 
         <Container>
-          <Title>Vergangene Shows</Title>
+          <H3>Vergangene Shows</H3>
           <Grid columns={2}>
             {past.map((show) => (
               <Show

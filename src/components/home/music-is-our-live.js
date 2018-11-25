@@ -6,7 +6,7 @@ import Container from '../Container'
 import Grid from '../Grid'
 import Video from '../Video'
 import Avatar from '../Avatar'
-import { SectionTitle as Title, SubTitle, Text } from '../Typography'
+import { SectionTitle as Title, H3, Text } from '../Typography'
 
 import { MediaQueries as media } from '../../style-variables'
 
@@ -104,7 +104,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
         </Container>
 
         <Container marginBottom="default">
-          <SubTitle>Aus dem Studio</SubTitle>
+          <H3>Aus dem Studio</H3>
           <Video
             roundedMobile
             video={data.MusicIsOurLifeVideo}

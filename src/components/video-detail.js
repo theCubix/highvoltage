@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import styled, { css } from 'react-emotion'
 
 import { RoundedCorners as rounded, MediaQueries as media } from '../style-variables'
-import { SubTitle as Title, TextBase } from './Typography'
+import { H3, TextBase } from './Typography'
 
 import Container from './Container'
 
@@ -61,7 +61,7 @@ class VideoDetail extends React.Component {
           </Video>
         </Container>
         <Container>
-          <Title>{title}</Title>
+          <H3>{title}</H3>
           <div
             className={Text}
             dangerouslySetInnerHTML={{
