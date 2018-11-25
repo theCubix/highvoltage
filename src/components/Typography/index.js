@@ -129,7 +129,7 @@ const H1 = styled('h1')`
   ${SharedHeadingBold};
   color: ${colours.text.primary};
   font-size: 2.25em;
-  line-height: 2.375em;
+  line-height: 1.1em;
   letter-spacing: 0.1em;
 `
 
