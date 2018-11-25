@@ -9,7 +9,7 @@ class VideoTemplate extends React.Component {
   static propTypes = {
     data: PropTypes.shape({
       contentfulVideo: PropTypes.object.isRequired,
-    }),
+    })
   }
   render() {
     return(
