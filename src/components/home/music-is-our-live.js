@@ -64,7 +64,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
     render={data => 
       <>
         <Container>
-          <Title>Music Is Our Life</Title>
+          <Title>Music Is Our Life</Title> 
         </Container>
 
         <Container video marginBottom="narrower">
