@@ -6,12 +6,6 @@ import { MediaQueries as media, refacturedColours as colours } from '../../style
 
 //Everything Heading
 
-const TitleBase = css`
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-`
-
 class SectionTitle extends React.Component {
   render() {
     const {
@@ -43,34 +37,6 @@ class SectionTitle extends React.Component {
     )
   }
 }
-
-const MainTitle = styled('h1')`
-  ${TitleBase};
-  font-size: 2rem;
-  line-height: 2rem;
-  margin-bottom: 5rem;
-  text-transform: uppercase;
-  ${media.mobile} {
-    font-size: 1.5em;
-    line-height: 1.25em;
-    margin-bottom: 30px;
-  }
-`
-
-const SubTitle = styled('h2')`
-  ${TitleBase};
-  font-size: 1.5em;
-  line-height: 1.35em;
-  margin-bottom: 1.5em;
-  text-transform: uppercase;
-  ${media.mobile} {
-    font-size: 1.2em;
-    line-height: 1.25em;
-    letter-spacing: 0;
-    margin-bottom: 1.275em;
-    text-transform: none;
-  }
-`
 
 //Everything regular text
 
@@ -194,11 +160,8 @@ const H5 = styled('h5')`
 `
 
 export {
-  TitleBase,
   TextBase,
   SectionTitle,
-  MainTitle,
-  SubTitle,
   Text,
   H1,
   H2,
