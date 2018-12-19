@@ -3,11 +3,6 @@
   "description": "Gatsby default starter",
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "engines": {
-    "node": ">=11.5.0",
-    "npm": ">=6.5.0"
-  },
-  "engineStrict": true,
   "dependencies": {
     "@babel/core": "^7.0.0",
     "emotion": "^9.2.8",
