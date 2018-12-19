@@ -12,21 +12,27 @@ class Event extends React.Component {
 
     return (
       <>
-        <Container>
-          <Heading>Bevorstehende Shows</Heading>
-        </Container>
+        { upcoming.length !== 0 ?
+        <>
+          <Container>
+            <Heading>Bevorstehende Shows</Heading>
+          </Container>
 
-        <Container marginBottom="narrow">
-          <Grid columns={2}>
-            {upcoming.map((show, index) => (
-              <Show
-                key={index}
-                show={show}
-                upcoming={true}
-              />
-            ))}
-          </Grid>
-        </Container>
+          <Container marginBottom="narrow">
+            <Grid columns={2}>
+              {upcoming.map((show, index) => (
+                <Show
+                  key={index}
+                  show={show}
+                  upcoming={true}
+                />
+              ))}
+            </Grid>
+          </Container>
+        </>
+        :
+        null
+        }
       </>
     )
   }
