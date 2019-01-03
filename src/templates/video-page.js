@@ -43,7 +43,7 @@ class VideoTemplate extends React.Component {
 
 export default VideoTemplate
 
-export const pageQuery = graphql`
+export const videoPageQuery = graphql`
   query($slug: String!) {
     contentfulVideo(slug: { eq: $slug}) {
       ...VideoDetail_details
