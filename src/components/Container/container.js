@@ -9,12 +9,13 @@ class Container extends React.Component {
       children,
       video,
       marginBottom,
-      zIndex
+      zIndex,
+      fullwidth
     } = this.props
 
     const Wrapper = styled('div')`
       margin: 0 auto;
-      max-width: 780px;
+      max-width: ${ fullwidth ? '100%' : '780px' };
       position: relative;
       z-index: ${
         zIndex ? zIndex : '1'
