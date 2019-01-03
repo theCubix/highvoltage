@@ -2,8 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled, { css } from 'react-emotion'
 
+import MarkdownFormatter from './Markdownformatter'
 import { RoundedCorners as rounded, MediaQueries as media } from '../style-variables'
-import { H3, TextBase } from './Typography'
+import { H3 } from './Typography'
 
 import Container from './Container'
 
@@ -27,12 +28,6 @@ const VideoContent = css`
   right: 0;
   top: 0;
   width: 100%;
-`
-
-const Text = css`
-  ${TextBase};
-  line-height: 1.618em;
-  opacity: 0.6;
 `
 
 class VideoDetail extends React.Component {
@@ -62,13 +57,7 @@ class VideoDetail extends React.Component {
         </Container>
         <Container>
           <H3>{title}</H3>
-          <div
-            className={Text}
-            dangerouslySetInnerHTML={{
-              __html: description.childMarkdownRemark.html
-            }}
-          />
-
+          <MarkdownFormatter body={description.childMarkdownRemark.html} />
         </Container>
       </>
     )

@@ -125,7 +125,7 @@ const SharedHeadingSemiBold = css`
   font-weight: 600;
 `
 
-const H1 = styled('h1')`
+const H1css = css`
   ${SharedHeadingBold};
   color: ${colours.text.primary};
   font-size: 2.25em;
@@ -133,7 +133,11 @@ const H1 = styled('h1')`
   letter-spacing: 0.1em;
 `
 
-const H2 = styled('h2')`
+const H1 = styled('h1')`
+  ${H1css};
+`
+
+const H2css = css`
   ${SharedHeadingBold};
   color: ${colours.text.muted};
   font-size: 1.875em;
@@ -141,28 +145,49 @@ const H2 = styled('h2')`
   letter-spacing: 0.1em;
 `
 
-const H3 = styled('h3')`
+const H2 = styled('h2')`
+  ${H2css};
+`
+
+const H3css = css`
   ${SharedHeadingSemiBold};
   font-size: 1.5em;
   line-height: 1.75em;
 `
 
-const H4 = styled('h4')`
+
+const H3 = styled('h3')`
+  ${H3css};
+`
+
+const H4css = css`
   ${SharedHeadingSemiBold};
   font-size: 1.25em;
   line-height: 1.875em;
 `
+const H4 = styled('h4')`
+  ${H4css};
+`
 
-const H5 = styled('h5')`
+const H5css = css`
   ${SharedHeadingSemiBold};
   font-size: 1em;
   line-height: 1.5em;
+`
+
+const H5 = styled('h5')`
+  ${H5css};
 `
 
 export {
   TextBase,
   SectionTitle,
   Text,
+  H1css,
+  H2css,
+  H3css,
+  H4css,
+  H5css,
   H1,
   H2,
   H3,
