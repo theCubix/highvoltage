@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled, { css } from 'react-emotion'
 
 import { RoundedCorners as rounded, Colours as colours, MediaQueries as media } from '../../style-variables'
-import { TextBase } from '../Typography'
+import { TextBase, HLarge, HLarger, HExtraLarge } from '../Typography'
 
 import { ReactComponent as LocationIcon } from '../../icons/location.svg'
 import { ReactComponent as DollarIcon } from '../../icons/currency-dollar.svg'
@@ -39,8 +39,7 @@ class Show extends React.Component {
     `
 
     const Date = styled('p')`
-      ${TextBase};
-      font-size: 1.5em;
+      ${HLarge};
       font-weight: 700;
       margin: 0 0 12px 0;
       opacity: 0.7;
@@ -51,32 +50,31 @@ class Show extends React.Component {
     `
 
     const TitleLink = styled(Link)`
-      ${TextBase};
-      color: ${colours.basePrimary};
       text-decoration: none;
     `
 
     const Title = styled('h2')`
-      ${TextBase};
-      font-size: 2.125em;
+      color: ${colours.basePrimary};
+      ${HExtraLarge};
       font-weight: 400;
       margin: 0 0 8px 0;
       ${media.mobile} {
-        font-size: 1.8em;
-        line-height: 1.2em;
-        margin-bottom: 4px;
+        ${HLarger};
       }
     `
 
     const Hours = styled('p')`
       ${TextBase};
-      font-size: 1.2em;
-      font-weight: 400;
       margin: 0 0 32px 0;
       opacity: 0.5;
       ${media.mobile} {
-        font-size: 0.9em;
+        font-size: 0.8em;
       }
+    `
+
+    const AdditionalInfo = styled('span')`
+      ${TextBase};
+      opacity: 0.5;
     `
 
     const IconBase = css`
@@ -93,9 +91,12 @@ class Show extends React.Component {
       opacity: 0.7;
       padding-left: 30px;
       margin: 0;
+      font-size: 1em;
     `
 
     const Bold = styled('span')`
+      line-height: 26px;
+      display: inline-block;
       font-weight: 700;
     `
 
@@ -139,7 +140,7 @@ class Show extends React.Component {
             <StyledLocationIcon />
             <Details>
               <Bold>{venue}</Bold><br />
-              {zipCode}, {city}, {canton}
+              <AdditionalInfo>{zipCode}, {city}, {canton}</AdditionalInfo>
             </Details>
           </div>
 

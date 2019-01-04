@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../layouts/main'
 
 import Container from '../components/Container'
-import { H3, Text } from '../components/Typography'
+import { SectionH3, Text } from '../components/Typography'
 
 import Show from '../components/Show'
 import Grid from '../components/Grid'
@@ -22,7 +22,7 @@ console.log(upcoming)
       <Layout>
 
         <Container marginBottom="narrower">
-          <H3>Bevorstehende Shows</H3>
+          <SectionH3>Bevorstehende Shows</SectionH3>
           { past ? typeof past !== 'undefined' && past.length > 0 && <Text>keine bevorstehenden shows</Text>
           :
             <Grid columns={2}>
@@ -38,7 +38,7 @@ console.log(upcoming)
         </Container>
 
         <Container>
-          <H3>Vergangene Shows</H3>
+          <SectionH3>Vergangene Shows</SectionH3>
           <Grid columns={2}>
             {past.map((show) => (
               <Show

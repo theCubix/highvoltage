@@ -5,7 +5,7 @@ import { css } from 'react-emotion'
 
 import MarkdownFormatter from '../components/Markdownformatter'
 import Container from '../components/Container'
-import { H1 } from '../components/Typography'
+import { SectionH1 } from '../components/Typography'
 
 const image = css`
   height: 70vh;
@@ -26,7 +26,7 @@ class BlogEntry extends React.Component {
           <Img fluid={cover.fluid} className={image} />
         </Container>
         <Container>
-          <H1>{title}</H1>
+          <SectionH1>{title}</SectionH1>
           {createdAt}
           <MarkdownFormatter body={body.childMarkdownRemark.html} />
         </Container>

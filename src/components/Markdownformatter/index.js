@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'react-emotion'
 
 import { Colours } from '../../style-variables'
-import { TextBase, H1css, H2css, H3css, H4css, H5css  } from '../Typography'
+import { TextBase, SectionH1css, SectionH2css, SectionH3css, SectionH4css, SectionH5css  } from '../Typography'
 
 const formatted = css`
   img {
@@ -15,19 +15,19 @@ const formatted = css`
     opacity: 0.8;
   }
   h1 {
-    ${H1css};
+    ${SectionH1css};
   }
   h2 {
-    ${H2css};
+    ${SectionH2css};
   }
   h3 {
-    ${H3css};
+    ${SectionH3css};
   }
   h4 {
-    ${H4css};
+    ${SectionH4css};
   }
   h5 {
-    ${H5css};
+    ${SectionH5css};
   }
   a {
     background: linear-gradient(180deg,transparent,transparent 66%, ${Colours.accentPrimary} 0, ${Colours.accentPrimary});

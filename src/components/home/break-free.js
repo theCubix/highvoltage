@@ -6,7 +6,7 @@ import { MediaQueries as media, RoundedCorners as rounded } from '../../style-va
 import Img from 'gatsby-image'
 import ButtonLink from '../ButtonLink'
 import Container from '../Container'
-import { SectionTitle as Heading, H3 } from '../Typography'
+import { SectionTitle as Heading, SectionH3 } from '../Typography'
 
 const links = [
     { id: 1, title: 'Apple Music', url: 'https://itunes.apple.com/ch/album/break-free-ep/1372030544?app=music' },
@@ -81,7 +81,7 @@ const MusicIsOurLife = ({ siteTitle }) => (
 
        <Container marginBottom="default" zIndex="2">
 
-          <H3>Erhältlich bei</H3>
+          <SectionH3>Erhältlich bei</SectionH3>
 
           {links.map(link => (
             <ButtonLink

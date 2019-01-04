@@ -4,7 +4,7 @@ import styled, { css } from 'react-emotion'
 
 import MarkdownFormatter from './Markdownformatter'
 import { RoundedCorners as rounded, MediaQueries as media } from '../style-variables'
-import { H3 } from './Typography'
+import { SectionH3 } from './Typography'
 
 import Container from './Container'
 
@@ -56,7 +56,7 @@ class VideoDetail extends React.Component {
           </Video>
         </Container>
         <Container>
-          <H3>{title}</H3>
+          <SectionH3>{title}</SectionH3>
           <MarkdownFormatter body={description.childMarkdownRemark.html} />
         </Container>
       </>

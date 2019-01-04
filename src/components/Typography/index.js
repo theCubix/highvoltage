@@ -13,7 +13,7 @@ class SectionTitle extends React.Component {
     } = this.props
 
     const Letter = styled('span')`
-      ${SharedHeadingBold};
+      ${SharedSectionHBold};
       color: rgba(213, 44, 44, 0.15);
       display: inline-block;
       font-size: 18.75rem;
@@ -32,7 +32,7 @@ class SectionTitle extends React.Component {
 
     return(
       <div>
-        <H2>{children}</H2><Letter>{children.charAt(0)}</Letter>
+        <SectionH2>{children}</SectionH2><Letter>{children.charAt(0)}</Letter>
       </div>
     )
   }
@@ -41,7 +41,7 @@ class SectionTitle extends React.Component {
 //Everything regular text
 
 const TextBase = css`
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 `
 
 class Text extends React.Component {
@@ -107,92 +107,120 @@ class Text extends React.Component {
   }
 }
 
-const SharedHeading = css`
+const H = css`
+  ${TextBase};
+`
+
+const HLargest = css`
+  ${H};
+  font-size: 3em;
+`
+
+const HExtraLarge = css`
+  ${H};
+  font-size: 2em;
+`
+
+const HLarger = css`
+  ${H};
+  font-size: 1.5em;
+`
+
+const HLarge = css`
+  ${H};
+  font-size: 1.2em;
+`
+
+const SharedSectionH = css`
   font-family: 'Oswald', sans-serif;
   position: relative;
   z-index: 1;
 `
 
-const SharedHeadingBold = css`
-  ${SharedHeading};
+const SharedSectionHBold = css`
+  ${SharedSectionH};
   font-weight: 700;
   text-transform: uppercase;
 `
 
-const SharedHeadingSemiBold = css`
-  ${SharedHeading};
+const SharedSectionHSemiBold = css`
+  ${SharedSectionH};
   color: ${colours.text.body};
   font-weight: 600;
 `
 
-const H1css = css`
-  ${SharedHeadingBold};
+const SectionH1css = css`
+  ${SharedSectionHBold};
   color: ${colours.text.primary};
   font-size: 2.25em;
   line-height: 1.1em;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
 `
 
-const H1 = styled('h1')`
-  ${H1css};
+const SectionH1 = styled('h1')`
+  ${SectionH1css};
 `
 
-const H2css = css`
-  ${SharedHeadingBold};
+const SectionH2css = css`
+  ${SharedSectionHBold};
   color: ${colours.text.muted};
   font-size: 1.875em;
   line-height: 1.1em;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
 `
 
-const H2 = styled('h2')`
-  ${H2css};
+const SectionH2 = styled('h2')`
+  ${SectionH2css};
 `
 
-const H3css = css`
-  ${SharedHeadingSemiBold};
+const SectionH3css = css`
+  ${SharedSectionHSemiBold};
   font-size: 1.5em;
   line-height: 1.75em;
 `
 
-
-const H3 = styled('h3')`
-  ${H3css};
+const SectionH3 = styled('h3')`
+  ${SectionH3css};
 `
 
-const H4css = css`
-  ${SharedHeadingSemiBold};
+const SectionH4css = css`
+  ${SharedSectionHSemiBold};
   font-size: 1.25em;
   line-height: 1.875em;
 `
-const H4 = styled('h4')`
-  ${H4css};
+const SectionH4 = styled('h4')`
+  ${SectionH4css};
 `
 
-const H5css = css`
-  ${SharedHeadingSemiBold};
+const SectionH5css = css`
+  ${SharedSectionHSemiBold};
   font-size: 1em;
   line-height: 1.5em;
 `
 
-const H5 = styled('h5')`
-  ${H5css};
+const SectionH5 = styled('h5')`
+  ${SectionH5css};
 `
 
 export {
   TextBase,
   SectionTitle,
   Text,
-  H1css,
-  H2css,
-  H3css,
-  H4css,
-  H5css,
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
+  H,
+  HLarger,
+  HLarge,
+  HExtraLarge,
+  HLargest,
+  SectionH1css,
+  SectionH2css,
+  SectionH3css,
+  SectionH4css,
+  SectionH5css,
+  SectionH1,
+  SectionH2,
+  SectionH3,
+  SectionH4,
+  SectionH5,
   // TextRegularLH,
   // TextUpper
 }

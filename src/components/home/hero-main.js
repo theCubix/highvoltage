@@ -1,19 +1,43 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 
+import Container from '../Container'
+import { SectionH1, Text } from '../Typography'
 import { MediaQueries as media } from '../../style-variables'
 import Img from 'gatsby-image'
 
-const Wrapper = styled(Img)`
-  height: 0!important;
-  margin-bottom: 7.5em;
-  padding-top: 41.125%;
-  width: 100%!important;
+const Blur = css`
+  filter: blur(10px);
+`
+
+const HeroWrapper = styled('div')`
+  position: relative;
+  margin-bottom: 8em;
   ${media.mobile} {
     margin-bottom: 2em;
   }
 `
+
+const Centered = styled('div')`
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  h1 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: 0.5em;
+  }
+  div {
+    width: 100%;
+  }
+`
+
 
 const HeroImage = ({data}) => (
   <StaticQuery
@@ -21,22 +45,35 @@ const HeroImage = ({data}) => (
       query Image {
         MainImage: file(relativePath: {eq: "images/voltage-arc-live-rockarena.jpg" }) {
           childImageSharp {
-            resolutions(
-              width: 1200,
-              traceSVG: {
-                color: "#c31818",
-                background: "#a31414"
-              }) {
-                ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+            #resolutions(
+            #  width: 1500,
+            #  traceSVG: {
+            #    color: "#c31818",
+            #    background: "#a31414"
+            #  }) {
+            #    ...GatsbyImageSharpResolutions_withWebp_tracedSVG
+            #}
+            fluid {
+              ...GatsbyImageSharpFluid
             }
           }
         }
       }`
     }
     render={data => (
-      <Wrapper
-        resolutions={data.MainImage.childImageSharp.resolutions}
-        alt="Voltage Arc live auf der Bühne der Rockarena in Schaffhausen" />
+      <HeroWrapper>
+        <Img
+          placeholderClassName={Blur}
+          fluid={data.MainImage.childImageSharp.fluid}
+          // resolutions={data.MainImage.childImageSharp.resolutions}
+          alt="Voltage Arc live auf der Bühne der Rockarena in Schaffhausen" />
+        <Centered>
+          <Container>
+            <SectionH1>Das ist Voltagearc.</SectionH1>
+            <Text importance="primary">Wir sind eine junge newcomer Rockband.</Text>
+          </Container>
+        </Centered>
+      </HeroWrapper>
     )}
     />
 )

@@ -7,7 +7,7 @@ import Img from 'gatsby-image'
 import { MediaQueries as media, Colours as colours, RoundedCorners as rounded } from '../style-variables'
 
 import Container from '../components/Container'
-import { H3, TextBase } from '../components/Typography'
+import { SectionH3, TextBase } from '../components/Typography'
 
 const VideoItem = styled('div')``
 
@@ -57,7 +57,7 @@ const VideosPage = ({ data }) => (
   <Layout>
     <Container>
       
-      <H3>Videos</H3>
+      <SectionH3>Videos</SectionH3>
 
       {data.allContentfulVideo.edges.map(({ node }, index) => (
         <VideoItem id={node.slug}>
