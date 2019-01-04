@@ -93,6 +93,8 @@ class Video extends React.Component {
         transform: scale(1.05);
       }
     `
+// ==> appearantly "outer wrapper" is no longer supported..
+
 
     const ImgWrapper = styled('div')`
       cursor: pointer;
@@ -155,7 +157,7 @@ class Video extends React.Component {
     
             <ImgWrapper>
               <StyledImg
-                outerWrapperClassName={`${ImgOuterWrapper}`}
+                className={css`${ImgOuterWrapper}`}
                 fixed={thumbnail.fixed}
                 fluid={thumbnail.fluid}
               />
