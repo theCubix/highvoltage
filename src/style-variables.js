@@ -26,6 +26,16 @@ const Colours = {
   accentDarker: '#C02828'
 }
 
+const Sizes = {
+  fsLargest: '3em',
+  fsExtraLarge: '2em',
+  fsLarger: '1.5em',
+  fsLarge: '1.2em',
+  fsSmall: '0.9em',
+  fsSmaller: '0.8em',
+  fsSmallest: '0.7'
+}
+
 const refacturedColours = {
   text: {
     primary: 'rgba(255, 255, 255, 0.9)',
@@ -45,4 +55,4 @@ const refacturedColours = {
   }
 }
 
-export { BreakPoints, MediaQueries, RoundedCorners, Colours, refacturedColours }
+export { BreakPoints, MediaQueries, RoundedCorners, Colours, refacturedColours, Sizes }
