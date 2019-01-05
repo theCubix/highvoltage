@@ -6,9 +6,13 @@ import { css } from 'react-emotion'
 import MarkdownFormatter from '../components/Markdownformatter'
 import Container from '../components/Container'
 import { SectionH1 } from '../components/Typography'
+import { MediaQueries } from '../style-variables'
 
 const image = css`
   height: 70vh;
+  ${MediaQueries.mobile} {
+    height: 50vh;
+  }
 `
 
 class BlogEntry extends React.Component {
