@@ -70,7 +70,7 @@ export const ShowQuery = graphql`
           venue
           zipCode
           city
-          canton
+          locality
         }
       }
     }

@@ -20,7 +20,7 @@ class Show extends React.Component {
       venue,
       zipCode,
       city,
-      canton
+      locality
     } = this.props.show
 
     const upcoming = this.props.upcoming
@@ -131,7 +131,7 @@ class Show extends React.Component {
       <Card>
         <Body>
           <Date>{date}</Date>
-          <TitleLink to={slug}>
+          <TitleLink to={`/shows/${slug}`}>
             <Title>{title}</Title>
           </TitleLink>
           <Hours>{startsAt} Uhr &bull; Türöffnung um {doors} Uhr</Hours>
@@ -140,7 +140,7 @@ class Show extends React.Component {
             <StyledLocationIcon />
             <Details>
               <Bold>{venue}</Bold><br />
-              <AdditionalInfo>{zipCode}, {city}, {canton}</AdditionalInfo>
+              <AdditionalInfo>{zipCode}, {city}, {locality}</AdditionalInfo>
             </Details>
           </div>
 

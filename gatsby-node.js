@@ -71,5 +71,37 @@ exports.createPages = ({ graphql, actions }) => {
         return
       })
     )
+
+    resolve(
+      graphql(
+        `
+          {
+            allContentfulEvent {
+              edges {
+                node {
+                  slug
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        if (result.errors) {
+          reject(new Error(result.errors))
+        }
+        const eventTemplate = path.resolve(`src/templates/show-page.js`)
+        _.each(result.data.allContentfulEvent.edges, edge => {
+          createPage({
+            path: `/shows/${slug(edge.node.slug)}/`,
+            component: slash(eventTemplate),
+            context: {
+              slug: edge.node.slug,
+            },
+          })
+        })
+
+        return
+      })
+    )
   })
 }
