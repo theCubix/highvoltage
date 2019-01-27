@@ -121,9 +121,9 @@ class Header extends React.Component {
               <Ul>
                 <Li><NavLink activeClassName="active" to="/shows/">Shows</NavLink></Li>
                 <Li><NavLink activeClassName="active" to="/videos/">Videos</NavLink></Li>
-                <Li><NavLink activeClassName="active" to="/gallery/">Gallery</NavLink></Li>
+                {/* <Li><NavLink activeClassName="active" to="/gallery/">Gallery</NavLink></Li> */}
                 <Li><NavLink activeClassName="active" to="/news/">News</NavLink></Li>
-                <Li><NavLink activeClassName="active" to="/shop/">Shop</NavLink></Li>
+                {/* <Li><NavLink activeClassName="active" to="/shop/">Shop</NavLink></Li> */}
               </Ul>
             </Nav>
           </Container>

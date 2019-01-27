@@ -127,12 +127,12 @@ class BottomNav extends React.Component {
             <LinkTitle>News</LinkTitle>
           </MenuItem>
 
-          <MenuItem
+          {/* <MenuItem
             activeClassName="active"
             to="/shop/">
             <ShopIcon className={Icon} />
             <LinkTitle>Shop</LinkTitle>
-          </MenuItem>
+          </MenuItem> */}
 
         </Nav>
       )} else {
