@@ -5,13 +5,13 @@ import { css } from 'react-emotion'
 
 import MarkdownFormatter from '../components/Markdownformatter'
 import Container from '../components/Container'
-import { SectionH1 } from '../components/Typography'
+import { SectionH1, Text } from '../components/Typography'
 import { MediaQueries } from '../style-variables'
 
 const image = css`
-  height: 70vh;
+  height: 60vh;
   ${MediaQueries.mobile} {
-    height: 50vh;
+    height: initial;
   }
 `
 
@@ -31,7 +31,7 @@ class BlogEntry extends React.Component {
         </Container>
         <Container>
           <SectionH1>{title}</SectionH1>
-          {createdAt}
+          <Text>{createdAt}</Text>
           <MarkdownFormatter body={body.childMarkdownRemark.html} />
         </Container>
       </div>
