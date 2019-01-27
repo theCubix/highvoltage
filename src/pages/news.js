@@ -1,22 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import styled from 'react-emotion'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 
 import Layout from '../layouts/main'
 import Container from '../components/Container'
+import { NewsHeroPreview, NewsPreview } from '../components/NewsPreview'
 import { SectionH1, TextBase } from '../components/Typography'
-import { Colours, Sizes } from '../style-variables'
 
-const TitleLink = styled(Link)`
-  ${TextBase};
-  color: ${Colours.basePrimary};
-  font-size: ${Sizes.fsLarger};
-  margin: 1em 0;
-  text-decoration: none;
-  display: block;
-`
 
 class News extends React.Component{
   render() {
@@ -25,18 +14,32 @@ class News extends React.Component{
 
     const news = allContentfulBlogEntry.edges.map((e) => e.node)
 
+    const heroEntry = news[0]
+    const remainingEntries = news.slice(1)
+
 
     return (
       <Layout>
-        <Container marginBottom="narrow">
+        <Container video marginBottom="narrower">
           <SectionH1>News</SectionH1>
-          {news.map((article) => (
-            <div>
-              <Img fluid={article.cover.fluid} />
-              <TitleLink to={`/news/${article.slug}`}>{article.title}</TitleLink>
-            </div>
-          ))}
+          <NewsHeroPreview
+            slug={heroEntry.slug}
+            cover={heroEntry.cover}
+            createdAt={heroEntry.createdAt}
+            title={heroEntry.title}
+            excerpt={heroEntry.body} />
         </Container>
+        <Container>
+          {remainingEntries.map(entry => (
+            <NewsPreview
+              key={entry.slug}
+              slug={entry.slug}
+              cover={entry.cover}
+              createdAt={entry.createdAt}
+              title={entry.title}
+              excerpt={entry.body} />
+          ))}
+          </Container>
       </Layout>
     )
   }
@@ -52,9 +55,22 @@ query {
         slug
         cover {
           fluid {
-            ...GatsbyContentfulFluid
+            base64
+            tracedSVG
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
           }
         }
+        body {
+          childMarkdownRemark {
+            excerpt(pruneLength: 250)
+          }
+        }
+        createdAt(formatString: "D. MMMM YYYY", locale: "DE")
       }
     }
   }
