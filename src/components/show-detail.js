@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 import { SectionH1, Text } from './Typography'
+import Markdownformatter from './Markdownformatter'
 import Container from './Container'
 
 class ShowDetail extends React.Component {
@@ -18,12 +19,15 @@ class ShowDetail extends React.Component {
       zipCode,
       locality,
       country,
+      description,
       coverImage
     } = this.props.event
 
     return(
       <Container>
         <SectionH1>{title}</SectionH1>
+        <Img fluid={coverImage.fluid} />
+        <Markdownformatter body={description.childMarkdownRemark.html} />
         <Text>{doors}</Text>
         <Text>{startsAt}</Text>
         <Text>{endsAt}</Text>
@@ -33,7 +37,6 @@ class ShowDetail extends React.Component {
         <Text>{zipCode}</Text>
         <Text>{locality}</Text>
         <Text>{country}</Text>
-        <Img fluid={coverImage.fluid} />
       </Container>
     )
   }
@@ -53,6 +56,12 @@ export const showDetailFragment = graphql`
     zipCode
     locality
     country
+    description {
+      childMarkdownRemark {
+        excerpt(pruneLength: 150)
+        html
+      }
+    }
     coverImage {
       fluid {
         ...GatsbyContentfulFluid

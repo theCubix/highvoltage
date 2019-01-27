@@ -53,7 +53,7 @@ class ShowPage extends React.Component {
               "https:${coverImage.fourByThree.src}",
               "https:${coverImage.sixteenByNine.src}"
             ],
-            "description": "${description}",
+            "description": "${description.childMarkdownRemark.excerpt}",
             "endDate": "${endsAt}",
             "performer": {
               "@type": "performingGroup",
