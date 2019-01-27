@@ -2,75 +2,43 @@ import React from 'react'
 import styled from 'react-emotion'
 import Layout from '../layouts/main'
 import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+// import Img from 'gatsby-image'
 
-import { MediaQueries as media, Colours as colours, RoundedCorners as rounded } from '../style-variables'
+// import { MediaQueries as media, Colours as colours, RoundedCorners as rounded } from '../style-variables'
 
 import Container from '../components/Container'
-import { SectionH3, TextBase } from '../components/Typography'
+import { SectionH1, TextBase } from '../components/Typography'
+import Video from '../components/Video'
+import { Colours } from '../style-variables';
 
-const VideoItem = styled('div')``
-
-const ThumbnailWrapper = styled(Link)`
-  display: block;
-  padding-top: 60px;
-  width: 100%;
-  ${media.mobile} {
-    padding-top: 40px;
-  }
+const Wrapper = styled('div')`
+  margin-bottom: 30px;
 `
 
-const Thumbnail = styled(Img)`
-  ${rounded};
-  /* width: 100%; */
-  transition: opacity 300ms ease;
-  ${VideoItem}:hover & {
-    opacity: 0.8;
-  }
-`
-
-const ContentWrapper = styled(Link)`
+const BlockLink = styled(Link)`
   ${TextBase};
-  color: ${colours.basePrimary};
+  color: ${Colours.basePrimary};
+  opacity: 0.5;
   display: block;
-  padding-top: 20px;
-  padding-left: 16px;
-  padding-right: 16px;
   text-decoration: none;
-`
-
-const VideoTitle = styled('h2')`
-  line-height: 1.8em;
-  font-size: 1.8em;
-  font-weight: 400;
-  margin: 0;
-  ${VideoItem}:hover & {
-    text-decoration: underline;
-  }
-  ${media.mobile} {
-    font-size: 1.1em;
-    line-height: 1.3em;
-}
+  padding: 20px 10px 10px 10px;
+  text-align: right;
 `
 
 const VideosPage = ({ data }) => (
   <Layout>
     <Container>
       
-      <SectionH3>Videos</SectionH3>
+      <SectionH1>Videos</SectionH1>
 
-      {data.allContentfulVideo.edges.map(({ node }, index) => (
-        <VideoItem id={node.slug}>
-          <ThumbnailWrapper key={index} to={`/videos/${node.slug}`}>
-            <Thumbnail fluid={node.thumbnail.fluid} />
-          </ThumbnailWrapper>
-
-          <ContentWrapper to={`/videos/${node.slug}`}>
-            <VideoTitle>{node.title}</VideoTitle>
-          </ContentWrapper>
-        </VideoItem>
-      ))}
-
+      {data.allContentfulVideo.edges.map(({ node }) => (
+          <Wrapper key={node.slug}>
+            <Video
+                video={node}
+              />
+              <BlockLink to={`/videos/${node.slug}`}>mehr Infos zum Video</BlockLink>
+          </Wrapper>
+        ))}
     </Container>
   </Layout>
 )
@@ -79,21 +47,16 @@ export default VideosPage
 
 export const videoPageQuery = graphql`
   query {
-    allContentfulVideo(sort: {fields: createdAt}) {
+    allContentfulVideo(sort: {fields: uploadedAt, order: DESC}) {
       edges {
         node {
-          slug
+          id
           title
+          slug
+          youTubeId
           thumbnail {
-            fluid {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+            fixed(width: 426, height: 240) {
+              ...GatsbyContentfulFixed_tracedSVG
             }
           }
         }
