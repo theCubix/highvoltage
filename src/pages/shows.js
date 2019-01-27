@@ -12,7 +12,6 @@ class ShowPage extends React.Component {
   render() {
     let { allContentfulEvent } = this.props.data
     const shows = allContentfulEvent.edges.map(e => e.node)
-
     const upcoming = shows.filter(show => parseInt(show.daysPast) <= 0)
     const past = shows.filter(show => parseInt(show.daysPast) > 0)
 
@@ -23,7 +22,7 @@ console.log(upcoming)
         <Container marginBottom="narrower">
           <SectionH1>Shows</SectionH1>
           <SectionH3>Bevorstehende Shows</SectionH3>
-          { past ? typeof past !== 'undefined' && past.length > 0 && <Text>keine bevorstehenden shows</Text>
+          { upcoming.length === 0 ? <Text>keine bevorstehenden shows</Text>
           :
             <Grid columns={2}>
               {upcoming.map((show) => (
@@ -34,7 +33,7 @@ console.log(upcoming)
                 />
               ))}
             </Grid>
-          }
+          } 
         </Container>
         <Container>
           <SectionH3>Vergangene Shows</SectionH3>
@@ -60,6 +59,7 @@ export const ShowQuery = graphql`
     allContentfulEvent(sort: { fields: doors }) {
       edges {
         node {
+          id
           title
           slug
           daysPast: doors(difference: "days")
