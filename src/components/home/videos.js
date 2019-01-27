@@ -16,7 +16,7 @@ class Videos extends React.Component {
     //configuration for the slider
     var settings = {
       arrows: true,
-      autoplay: true,
+      autoplay: false,
       centerMode: false,
       dots: true,
       infinite: true,
