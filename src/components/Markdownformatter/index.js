@@ -5,6 +5,9 @@ import { Colours } from '../../style-variables'
 import { TextBase, SectionH1css, SectionH2css, SectionH3css, SectionH4css, SectionH5css  } from '../Typography'
 
 const formatted = css`
+  * {
+    ${TextBase};
+  }
   img {
     max-width: 100%;
     height: auto;
