@@ -27,6 +27,9 @@ const Centered = styled('div')`
   position: absolute;
   display: flex;
   align-items: center;
+  ${media.mobile} {
+    position: relative;
+  }
   h1 {
     margin-bottom: 0;
   }
@@ -69,8 +72,8 @@ const HeroImage = ({data}) => (
           alt="Voltage Arc live auf der Bühne der Rockarena in Schaffhausen" />
         <Centered>
           <Container>
-            <SectionH1>Das ist Voltagearc.</SectionH1>
-            <Text importance="primary">Wir sind eine junge newcomer Rockband.</Text>
+            <SectionH1>Wir sind Voltagearc.</SectionH1>
+            <Text importance="primary">Eine junge newcomer Rockband.</Text>
           </Container>
         </Centered>
       </HeroWrapper>
