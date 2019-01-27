@@ -39,9 +39,7 @@ class Avatar extends React.Component {
     
   return (
     <div>
-      
       <StyledImg fluid={img} />
-
       <Description>
         <Title>{name}</Title>
         <Seperator />
@@ -51,6 +49,5 @@ class Avatar extends React.Component {
     )
   }
 }
-
 
 export default Avatar

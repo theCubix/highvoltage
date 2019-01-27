@@ -15,9 +15,7 @@ class VideoSlider extends React.Component {
   }
   render() {
     let { allContentfulVideo } = this.props.data
-
     const videos = allContentfulVideo.edges.map(e => e.node)
-
     let settings = {
       dots: true,
       infinite: false,
@@ -37,7 +35,6 @@ class VideoSlider extends React.Component {
       <Layout>
         <div className="container container--video">
           <Slider {...settings}>
-            
             {videos.map((video) => (
               <Video
                 key={video.id}
@@ -45,10 +42,8 @@ class VideoSlider extends React.Component {
                 isLink
               />
             ))}
-
           </Slider>
         </div>
-
       </Layout>
     )
   }

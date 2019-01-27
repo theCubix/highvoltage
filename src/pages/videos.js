@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'react-emotion'
 import Layout from '../layouts/main'
 import { graphql, Link } from 'gatsby'
-// import Img from 'gatsby-image'
-
-// import { MediaQueries as media, Colours as colours, RoundedCorners as rounded } from '../style-variables'
 
 import Container from '../components/Container'
 import { SectionH1, TextBase } from '../components/Typography'
@@ -28,9 +25,7 @@ const BlockLink = styled(Link)`
 const VideosPage = ({ data }) => (
   <Layout>
     <Container>
-      
       <SectionH1>Videos</SectionH1>
-
       {data.allContentfulVideo.edges.map(({ node }) => (
           <Wrapper key={node.slug}>
             <Video

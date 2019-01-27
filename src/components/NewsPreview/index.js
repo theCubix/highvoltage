@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import styled from 'react-emotion'
 import Img from 'gatsby-image'
 
-import { SectionTitle as Title, TextBase, Text } from '../Typography'
+import { TextBase, Text } from '../Typography'
 import { RoundedCorners as rounded, Colours as colours, MediaQueries as media } from '../../style-variables'
 
 const HeroImage = styled(Img)`

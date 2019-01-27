@@ -48,14 +48,6 @@ const HeroImage = ({data}) => (
       query Image {
         MainImage: file(relativePath: {eq: "images/voltage-arc-live-rockarena.jpg" }) {
           childImageSharp {
-            #resolutions(
-            #  width: 1500,
-            #  traceSVG: {
-            #    color: "#c31818",
-            #    background: "#a31414"
-            #  }) {
-            #    ...GatsbyImageSharpResolutions_withWebp_tracedSVG
-            #}
             fluid {
               ...GatsbyImageSharpFluid
             }

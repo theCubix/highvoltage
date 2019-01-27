@@ -1,5 +1,4 @@
 import React from 'react'
-// import { graphql } from 'gatsby'
 
 import Layout from '../layouts/main'
 import Container from '../components/Container'
@@ -12,7 +11,3 @@ export default ({ data }) => (
     </Container>
   </Layout>
 )
-
-// export const query = graphql`
-// query {}
-// `

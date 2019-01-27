@@ -20,11 +20,8 @@ console.log(upcoming)
 
     return (
       <Layout>
-
         <Container marginBottom="narrower">
-
           <SectionH1>Shows</SectionH1>
-
           <SectionH3>Bevorstehende Shows</SectionH3>
           { past ? typeof past !== 'undefined' && past.length > 0 && <Text>keine bevorstehenden shows</Text>
           :
@@ -39,7 +36,6 @@ console.log(upcoming)
             </Grid>
           }
         </Container>
-
         <Container>
           <SectionH3>Vergangene Shows</SectionH3>
           <Grid columns={2}>
@@ -52,7 +48,6 @@ console.log(upcoming)
             ))}
           </Grid>
         </Container>
-
       </Layout>
     )
   }
