@@ -26,7 +26,8 @@ class Index extends React.Component {
     let { 
       allContentfulVideo,
       allContentfulEvent,
-      allContentfulBlogEntry
+      allContentfulBlogEntry,
+      logo
     } = this.props.data
     const videos = allContentfulVideo.edges.map(e => e.node)
     
@@ -42,9 +43,10 @@ class Index extends React.Component {
             "type": "application/ld+json",
             "innerHTML": `{
               "@context": "http://schema.org",
-              "@type": "organization",
+              "@type": "Organization",
               "name": "Voltage Arc",
               "url": "https://www.voltagearc.com",
+              "logo": "https://www.voltagearc.com/${logo.childImageSharp.fixed.src}",
               "sameAs": [
                 "https://facebook.com/VoltageArc",
                 "https://www.instagram.com/voltage_arc/",
@@ -123,6 +125,13 @@ export const pageQuery = graphql`
             }
           }
           createdAt(formatString: "D. MMMM YYYY", locale:"DE")
+        }
+      }
+    }
+    logo: file(relativePath: {eq: "images/shortcut.jpg"}) {
+      childImageSharp {
+        fixed(width: 300, height: 300, quality: 100) {
+          src
         }
       }
     }
